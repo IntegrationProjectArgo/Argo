@@ -106,6 +106,97 @@ angular.module('starter.controllers', ['firebase'])
         };
         var map = new google.maps.Map(document.getElementById("map"), mapOptions);
 
+        map.set('styles', [
+            {
+                "stylers": [
+                    { "visibility": "off" }
+                ]
+            },{
+                "featureType": "poi.park",
+                "stylers": [
+                    { "visibility": "on" }
+                ]
+            },{
+                "featureType": "administrative",
+                "stylers": [
+                    { "visibility": "on" }
+                ]
+            },{
+                "featureType": "landscape.man_made",
+                "stylers": [
+                    { "visibility": "on" }
+                ]
+            },{
+                "featureType": "landscape.natural",
+                "stylers": [
+                    { "visibility": "on" }
+                ]
+            },{
+                "featureType": "poi.attraction",
+                "stylers": [
+                    { "visibility": "on" }
+                ]
+            },{
+                "featureType": "poi.business",
+                "stylers": [
+                    { "visibility": "on" }
+                ]
+            },{
+                "featureType": "poi.medical",
+                "stylers": [
+                    { "visibility": "on" }
+                ]
+            },{
+                "featureType": "poi.park",
+                "stylers": [
+                    { "visibility": "on" }
+                ]
+            },{
+                "featureType": "poi.school",
+                "stylers": [
+                    { "visibility": "on" }
+                ]
+            },{
+                "featureType": "poi.sports_complex",
+                "stylers": [
+                    { "visibility": "on" }
+                ]
+            },{
+                "featureType": "road.highway",
+                "stylers": [
+                    { "visibility": "on" }
+                ]
+            },{
+                "featureType": "transit.line",
+                "stylers": [
+                    { "visibility": "on" }
+                ]
+            },{
+                "featureType": "transit.station",
+                "stylers": [
+                    { "visibility": "on" }
+                ]
+            },{
+                "featureType": "road.local",
+                "stylers": [
+                    { "visibility": "on" }
+                ]
+            },{
+                "featureType": "road.arterial",
+                "stylers": [
+                    { "visibility": "on" }
+                ]
+            },{
+                "featureType": "water",
+                "stylers": [
+                    { "visibility": "on" }
+                ]
+            }
+
+            ]);
+
+        map.controls[google.maps.ControlPosition.RIGHT_BOTTOM].push(document.getElementById('legend'));
+
         google.maps.event.addDomListener(document.getElementById('map'), 'mousedown', function(e){
             e.preventDefault();
             return false;
