@@ -1,0 +1,59 @@
+<!--
+  This template loads for the 'tab.friend-detail' state (app.js)
+  'friend' is a $scope variable created in the FriendsCtrl controller (controllers.js)
+  The FriendsCtrl pulls data from the Friends service (service.js)
+  The Friends service returns an array of friend data
+-->
+<ion-view view-title="Gesprek">
+
+
+<link href="lib/ionic/css/ionic.css" rel="stylesheet">
+<link href="css/conversation_style.css" rel="stylesheet">
+    <div class="employerheader">
+        <img class="convoavatar" ng-src={{chat.face}}>
+        <h1 class="convotitle">{{chat.name}}</h1>
+        <h2 class="convoinfo">{{chat.company}}</h2>
+        <h2 class="convojob">Vacature: {{chat.vacature}}</h2>
+
+
+    </div>
+    <ion-content class="contentconvo">
+
+        <div class="userbubble">
+            <p class="conversation userconversation">k gimme job pls</p>
+            <a class="usertimestamp">15:36 3/4/2015</a>
+        </div>
+
+        <div class="employerbubble">
+            <p class="conversation employerconversation">k, schoenmaat?</p>
+            <a class="timestamp">15:36 3/4/2015</a>
+        </div>
+
+        <div class="userbubble">
+            <button class="button button-positive button-vraag">
+                Reageer
+            </button>
+        </div>
+
+        <div class="meeting">
+            <a href="#" class="item item-icon-left">
+                <i class="icon ion-ios7-clock-outline"></i>
+                <p>U heeft een sollicitatie gesprek!<br>Afspraak op 24 april om 15u30.</p>
+                <button class="button button-positive bekijkroute">
+                    Bekijk route
+                </button>
+            </a>
+        </div>
+
+        <div class="rating">
+            <a href="#" class="item item-icon-left">
+                <i class="icon ion-ios7-star-outline"></i>
+                <p>Hoe ging de sollicitatie?</p>
+                <button class="button button-positive bekijkroute">
+                    Geef een score
+                </button>
+            </a>
+        </div>
+        <br><br><br>
+    </ion-content>
+</ion-view>

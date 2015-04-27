@@ -1,0 +1,184 @@
+
+button.button-vraag{
+    margin:5px;
+    width:calc(100% - 10px);
+}
+
+hr{
+    color:lightgrey;
+    border-color:lightgrey;
+    background-color:lightgrey;
+}
+
+img.convoavatar{
+    width:100px;
+    height:100px;
+    float:left;
+}
+
+h1.convotitle{
+    color:black;
+    font:helvetica;
+    position:relative;
+    left:10px;
+    font-size:16px;
+    font-style:none;
+    top:10px;
+}
+
+h2.convoinfo{
+    color:black;
+    font-size:12px;
+    position:relative;
+    left:10px;
+    top:5px;
+    font-style:italic;
+    text-decoration: none;
+}
+
+h2.convojob{
+    color:black;
+    font-size:16px;
+    position:relative;
+    left:10px;
+    top:12px;
+    font-style:none;
+    text-decoration: none;
+}
+
+div.employerheader{
+    border-color: lightgrey;
+    border-style: solid;
+    border-bottom-width: 1px;
+    background-color: white;
+    color: #fff;
+    margin-top:44px;
+    height:101px;
+    box-shadow: 2px 2px 2px #888888;
+}
+
+p.employername{
+    font:helvetica;
+    font-size:16px;
+    color:white;
+
+}
+
+a.timestamp{
+    font:helvetica;
+    font-style: italic;
+    padding-left:10px;
+    padding-bottom:10px;
+    margin-top:0px;
+    color:grey;
+}
+
+a.usertimestamp{
+    font:helvetica;
+    font-style: italic;
+    padding-left:10px;
+    padding-bottom:10px;
+    margin-top:0px;
+    color:lightgrey;
+}
+
+ion-content.contentconvo{
+    margin-top:102px;
+    height:calc(100% - 180px);
+}
+
+div.employerbubble
+{
+    margin-top:10px;
+    min-width:100px;
+    max-width: 70%;
+    min-height: 50px;
+    height:auto;
+    position: relative;
+    padding: 0px;
+    background: lightgrey;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    margin-left:15px;
+}
+
+.employerbubble:after
+{
+    content: '';
+    position: absolute;
+    border-style: solid;
+    border-width: 10px 11px 10px 0;
+    border-color: transparent lightgrey;
+    display: block;
+    width: 0;
+    z-index: 1;
+    left: -11px;
+    top: 12px;
+}
+
+.userbubble
+{
+    margin-left:30%;
+    margin-right:20px;
+    margin-top:10px;
+    position: relative;
+    min-width:100px;
+    max-width:70%;
+    width:auto;
+
+    min-height:50px;
+    height: auto;
+    padding: 0px;
+    background: #387ef5;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+}
+
+.userbubble:after
+{
+    margin-top:10px;
+    content: '';
+    position: absolute;
+    border-style: solid;
+    border-width: 11px 0 11px 10px;
+    border-color: transparent #387ef5;
+    display: block;
+    width: 0;
+    z-index: 1;
+    margin-top: -15px;
+    right: -10px;
+    top: 30px;
+}
+
+p.conversation{
+    padding:10px;
+    font:helvetica;
+    font-size:15px;
+}
+p.userconversation{
+    color:white;
+}
+
+div.meeting{
+    margin-top:10px;
+    background:lightgrey;
+    min-height: 50px;
+    border: solid lightgrey 1px;
+    border-radius:5px;
+    width:95%;
+    margin-left:2.5%;
+
+}
+
+div.rating{
+    margin-top:10px;
+    width:95%;
+    margin-left:2.5%;
+}
+
+button.bekijkroute{
+    width:100%;
+    margin-top:10px;
+}

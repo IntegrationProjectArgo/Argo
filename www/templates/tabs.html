@@ -1,0 +1,35 @@
+<!--
+Create tabs with an icon and label, using the tabs-positive style.
+Each tab's child <ion-nav-view> directive will have its own
+navigation history that also transitions its views in and out.
+-->
+<ion-tabs class="tabs-striped tabs-color-positive">
+
+     <!-- Dashboard Tab -->
+    <ion-tab  title="Home" icon-on="ion-home" icon-off="ion-home" href="#/tab/dash">
+        <ion-nav-view name="tab-dash"></ion-nav-view>
+    </ion-tab>
+    
+  <!-- Interesse Tab -->
+  <ion-tab title="Interesse" icon-off="ion-star" icon-on="ion-star" href="#/tab/favs">
+    <ion-nav-view name="tab-favs"></ion-nav-view>
+  </ion-tab>
+    
+    <!-- Map Tab -->
+  <ion-tab title="Map" icon-off="ion-map" icon-on="ion-map" href="#/tab/map">
+    <ion-nav-view name="tab-map"></ion-nav-view>
+  </ion-tab>
+
+  <!-- Chats Tab -->
+  <ion-tab title="Chats" icon-off="ion-chatbubbles" icon-on="ion-chatbubbles" href="#/tab/chats">
+    <ion-nav-view name="tab-chats"></ion-nav-view>
+  </ion-tab>
+
+  <!-- Settings Tab -->
+  <ion-tab title="Setting" icon-off="ion-gear-a" icon-on="ion-gear-a" href="#/tab/setting">
+    <ion-nav-view name="tab-setting"></ion-nav-view>
+  </ion-tab>
+
+
+
+</ion-tabs>

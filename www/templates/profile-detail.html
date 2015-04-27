@@ -1,0 +1,75 @@
+<ion-view view-title="{{profileDetail.name}}">
+    <ion-content class="has-tabs had-header">
+
+
+        <div class="list card">
+
+            <div class="item item-avatar">
+                <img class="avatar" ng-src={{profileDetail.face}}>
+                <div class="leftspace"><h2>{{profileDetail.name}}</h2>
+                    <p>Level {{profileDetail.level}}</p>
+                </div>
+            </div>
+
+        </div>
+        <div class="card">
+            <div class="item item-button-right item-divider bar bar-positive">
+                Adres
+                <button class="button button-light button-clear" href="#">
+                    <i class="icon ion-compose"></i>
+                </button>
+            </div>
+
+            <div class="item item-text-wrap">
+
+                <p>{{profileDetail.adres.straat}}</p>
+                <p>{{profileDetail.adres.postcode}} {{profileDetail.adres.gemeente}}</p>
+
+            </div>
+
+        </div>
+
+        <div class="card">
+            <div class="item item-button-right item-divider bar bar-positive">
+                Contact
+                <button class="button button-light button-clear" href="#">
+                    <i class="icon ion-compose"></i>
+                </button>
+            </div>
+
+            <div class="item list item-text-wrap">
+                <div class="item">
+                    <p><i class="icon ion-iphone"> </i> {{profileDetail.telefoon}}</p>
+
+                </div>
+                <div class="item">
+                    <p><i class="icon ion-at"> </i>{{profileDetail.email}}</p>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="card">
+            <div class="item item-button-right item-divider bar bar-positive">
+                Ervaringen
+                <button class="button button-light button-clear" href="#">
+                    <i class="icon ion-compose"></i>
+                </button>
+            </div>
+
+            <div class="item list item-text-wrap">
+                <ion-item ng-repeat="ervaringen in profileDetail.ervaringen" type="item-text-wrap">
+                    <div class="item">
+                        <h2><i class="icon ion-clipboard"> </i>{{profileDetail.ervaringen[$index].titel}}</h2>
+                        <span class="item-note"><i class="icon ion-briefcase"></i>{{profileDetail.ervaringen[$index].company}}</span>
+                        <p><i class="icon ion-clock"></i>{{profileDetail.ervaringen[$index].duur}}</p>
+                    </div>
+                </ion-item>
+
+            </div>
+
+        </div>
+    <br><br>
+    </ion-content>
+</ion-view>
