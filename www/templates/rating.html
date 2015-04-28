@@ -1,0 +1,16 @@
+<link href="lib/ionic/css/ionic.css" rel="stylesheet">
+<ion-view view-title="Rating">
+    <ion-content>
+        <ion-list>
+            <ion-item class="item item-divider">
+                Gezelligheid
+            </ion-item>
+            <ion-item>
+                <star-rating-view class="star-rating" rating-value="dataReview.rating" data-max="5">
+                    <ul class="rating"><!-- ngRepeat: star in stars --></ul>
+                </star-rating-view>
+            </ion-item>
+
+        </ion-list>
+    </ion-content>
+</ion-view>
