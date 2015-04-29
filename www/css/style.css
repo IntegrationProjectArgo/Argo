@@ -21,8 +21,8 @@
 
 #chevron{
     position:absolute;
-    top:40%;
-    left:calc(50% - 20px);
+    top:55%;
+    left:43%;
     animation-name: example;
     animation-duration: 2s;
     animation-iteration-count: infinite;
@@ -47,7 +47,7 @@ swipe-card{
     position: fixed;
     -webkit-transform: scale(1,1);
     left: 5%;
-    top: 20%;
+    top: 35%;
     width:90%;
     height:80%; /*350px*/
     background-color: rgb(255,255,255);
@@ -67,7 +67,7 @@ swipe-card .item-body{
     text-align: center;
     height: 60%;
     left:5%;
-    top:30%;
+    top:35%;
     width:90%;
     box-shadow: lightgrey 2px 2px 2px;
 }
