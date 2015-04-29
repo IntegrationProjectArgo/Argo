@@ -1,25 +1,18 @@
-<ion-view view-title="{{fav.title}}">
+<ion-view view-title="{{fav.BEROEP}}">
+    <ion-nav-buttons class="button button-positive" side="right">
+        <button id="emailbutton" class="button button-clear button-light"><i class="icon ion-ios-email-outline"></i></button>
+    </ion-nav-buttons>
+    </ion-nav-bar>
     <ion-content class="has-header-tabs">
 
-        <div class="list card">
-
-            <div class="item item-avatar">
-                <img class="avatar" ng-src="{{fav.image}}">
-                <div class="leftspace"><h2>{{fav.title}}</h2>
-                    <p>{{fav.vacPlacer}}</p>
-                </div>
-            </div>
-
-        </div>
         <div class="card">
             <div class="item item-button-right item-divider bar bar-positive">
-                Adres
+                <i class="icon ion-ios-location"></i> Locatie
             </div>
 
             <div class="item item-text-wrap">
 
-                <p>HillStraat 1985</p>
-                <p>HillDale, USA</p>
+                <p>{{fav.AMB_REGIO}}, {{fav.PROVINCIE}}</p>
 
             </div>
 
@@ -27,48 +20,52 @@
 
         <div class="card">
             <div class="item item-button-right item-divider bar bar-positive">
-                Contact
+                <i class="icon ion-help"></i> Omschrijving
             </div>
 
-            <div class="item list item-text-wrap">
-                <div class="item">
-                    <p><i class="icon ion-iphone"> </i>(555)123-456</p>
+            <div class="item item-text-wrap">
 
-                </div>
-                <div class="item">
-                    <p><i class="icon ion-at"> </i>marty.mcfly@gmail.com</p>
-                </div>
+                <p>{{fav.NACE_OMSCHRIJVING}} ({{fav.SECTOR}})</p>
 
             </div>
 
         </div>
 
+
         <div class="card">
             <div class="item item-button-right item-divider bar bar-positive">
-                Ervaringen
+                <i class="icon ion-person"></i> Profiel
             </div>
 
             <div class="item list item-text-wrap">
                 <div class="item">
-                    <h2><i class="icon ion-clipboard"> </i>Tijd reizen</h2>
-                    <span class="item-note"><i class="icon ion-briefcase"></i> Doc Industries</span>
-                    <p><i class="icon ion-clock"></i> 3 jaar</p>
+                    <h2>Opleiding</h2>
+                    <span class="item-note"></span>
+                    <p>{{fav.STUDIENIVEAU_BASIS}}, {{fav.STUDIENIVEAU_DETAIL}}</p>
                 </div>
                 <div class="item">
-                    <h2><i class="icon ion-clipboard"> </i>Rockstar</h2>
-                    <span class="item-note"><i class="icon ion-briefcase"></i> Ac/Dc</span>
-                    <p><i class="icon ion-clock"></i> 1 jaar</p>
+                    <h2>Ervaring</h2>
+                    <span class="item-note"></span>
+                    <p>{{fav.ERVARING}}</p>
                 </div>
                 <div class="item">
-                    <h2><i class="icon ion-clipboard"> </i>Test3</h2>
-                    <span class="item-note"><i class="icon ion-briefcase"></i> Test3</span>
-                    <p><i class="icon ion-clock"></i> Time3</p>
+                    <h2>Taalkennis</h2>
+                    <span class="item-note"></span>
+                    <p>Frans: {{fav.TAAL_FRANS}}</p>
+                    <p>Engels: {{fav.TAAL_ENGELS}}</p>
+                    <p>Duits: {{fav.TAAL_DUITS}}</p>
                 </div>
                 <div class="item">
-                    <h2><i class="icon ion-clipboard"> </i>Test4</h2>
-                    <span class="item-note"><i class="icon ion-briefcase"></i> Test4</span>
-                    <p><i class="icon ion-clock"></i> Time4</p>
+                    <h2>Rijbewijs</h2>
+                    <span class="item-note"></span>
+                    <p>{{fav.RIJBEWIJS}}</p>
                 </div>
+                <div class="item">
+                    <h2>Tijdsregeling</h2>
+                    <span class="item-note"></span>
+                    <p>{{fav.VOLTIJDS_DEELTIJDS}}</p>
+                </div>
+
 
             </div>
 
@@ -77,6 +74,7 @@
             Toon Interesse
 
         </div>
+        <br><br>
 
     </ion-content>
 </ion-view>
