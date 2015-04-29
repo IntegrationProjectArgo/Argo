@@ -1,12 +1,12 @@
 /* Empty. Add your own CSS if you like */
-ion-nav-view{height:20px;}
+/*ion-nav-view{height:20px;}*/
 
 .scroll {
-    height: calc(100% - 100px);
+    height: 93.5%;
 }
 
 #top{
-    height:70px;
+
 }
 
 
@@ -21,7 +21,7 @@ ion-nav-view{height:20px;}
 
 #chevron{
     position:absolute;
-    top:calc(100% - 130px);
+    top:40%;
     left:calc(50% - 20px);
     animation-name: example;
     animation-duration: 2s;
@@ -41,24 +41,22 @@ ion-nav-view{height:20px;}
     position: fixed;
 }
 
+
 swipe-card{
     display: none;
     position: fixed;
     -webkit-transform: scale(1,1);
-    left: 41%;
-    top: 53%;
-    width: 370px;
-    height:100%; /*350px*/
-    margin-left: -150px;
-    margin-top: -150px;
-    box-sizing: border-box;
+    left: 5%;
+    top: 20%;
+    width:90%;
+    height:80%; /*350px*/
     background-color: rgb(255,255,255);
     border-radius: 4px;
-    overflow: hidden;
+    overflow: visible;
     -webkit-animation-fill-mode: forwards;
 }
 swipe-card .item-body{
-    height: 200px;
+    height: 150px;
 }
 #start-card{
     color: #fff;
@@ -67,10 +65,10 @@ swipe-card .item-body{
     word-wrap: break-word;
     border: 0px solid #0c63ee;
     text-align: center;
-    height: 50%;
-    left:160px;
-    top:310px;
-    width:calc(100% - 25px);
+    height: 60%;
+    left:5%;
+    top:30%;
+    width:90%;
     box-shadow: lightgrey 2px 2px 2px;
 }
 #start-card span{
@@ -87,7 +85,7 @@ swipe-card .item-body{
         -webkit-transform: scale(0,0);
     }
     70%{
-        -webkit-transform: scale(1.2,1.2);
+        -webkit-transform: scale(1.1,1.1);
     }
     100%{
         -webkit-transform: scale(1,1);

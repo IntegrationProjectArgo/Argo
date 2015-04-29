@@ -83,6 +83,42 @@ angular.module('starter.services', [])
         };
     })
 
+    .factory('Ratings', function () {
+        var ratings = [{
+            id: 0,
+            name: 'Sfeer',
+            stars: [{
+                star1: 0,
+                star2: 0,
+                star3: 0,
+                star4: 0,
+                star5: 0
+            }],
+            id:1,
+            name: 'Vriendelijkheid',
+            stars: [{
+                star1: 0,
+                star2: 0,
+                star3: 0,
+                star4: 0,
+                star5: 0
+            }]
+        }];
+        return {
+            all: function() {
+                return ratings;
+            },
+            get: function(ratingId) {
+                for (var i = 0; i < ratings.length; i++) {
+                    if (ratings[i].id === parseInt(ratingId)) {
+                        return ratings[i];
+                    }
+                }
+                return null;
+            }
+        };
+    })
+
 .factory('Chats', function() {
   // Might use a resource here that returns a JSON array
 

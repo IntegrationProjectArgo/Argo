@@ -116,9 +116,9 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
       }
     })
       .state('tab.rating', {
-          url:'/chats/rating',
+          url:'/chats/:chatId/:ratingId',
           views: {
-              'tab-chats': {
+              'tab-rating': {
               templateURL: 'templates/rating.html',
                   controller: 'RatingCtrl'
               }
