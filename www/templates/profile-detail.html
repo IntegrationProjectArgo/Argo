@@ -6,16 +6,15 @@
     <ion-content class="has-tabs had-header">
 
 
-        <div class="list card">
-
-            <div class="item item-avatar">
+        <div id = "top" class="list card">
+            <a class="item item-avatar" href="#/tab/dash/{{profileDetail.id}}" >
                 <img class="avatar" ng-src={{profileDetail.face}}>
-                <div class="leftspace"><h2>{{profileDetail.name}}</h2>
-                    <p>Level {{profileDetail.level}}</p>
+                <div class="leftspace"><h2> {{profileDetail.name}}</h2><p style="float:right;position:relative;top:-25px;">Level {{profileDetail.level}}</p></p>
+                    <item><progress value="10" max="100" style="position:relative;top:-5px;"></progress></item>
                 </div>
-            </div>
-
+            </a>
         </div>
+
         <div class="card">
             <div class="item item-button-right item-divider bar bar-balanced">
                 Adres
