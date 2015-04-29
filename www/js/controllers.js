@@ -271,6 +271,11 @@ angular.module('starter.controllers', ['firebase'])
   $scope.chat = Chats.get($stateParams.chatId);
 })
 
+.controller('RatingCtrl', function($scope) {
+
+    })
+
+
 .controller('SettingCtrl', function($scope) {
   $scope.settings = {
     enableFriends: true

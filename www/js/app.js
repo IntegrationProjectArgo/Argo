@@ -66,7 +66,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
         }
     }
   })
-  
+
   .state('tab.favs', {
       url: '/favs',
       views: {
@@ -115,8 +115,18 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
         }
       }
     })
+      .state('tab.rating', {
+          url:'/chats/rating',
+          views: {
+              'tab-chats': {
+              templateURL: 'templates/rating.html',
+                  controller: 'RatingCtrl'
+              }
+          }
+      })
 
-  .state('tab.setting', {
+
+      .state('tab.setting', {
     url: '/setting',
     views: {
       'tab-setting': {
