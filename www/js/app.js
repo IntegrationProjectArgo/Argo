@@ -56,7 +56,16 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
       }
     }
   })
-  
+      .state('tab.login', {
+          url: '/login',
+          views: {
+              'tab-dash': {
+                  templateUrl: 'login.html',
+                  controller: 'DashCtrl'
+              }
+          }
+      })
+
   .state('tab.profile-detail', {
     url: '/dash/:profileId',
     views: {

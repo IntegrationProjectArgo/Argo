@@ -1,0 +1,1 @@
+var fb = new Firebase('https://argo.firebaseio.com/');
