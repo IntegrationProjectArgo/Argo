@@ -177,11 +177,24 @@ angular.module('starter.controllers', ['firebase'])
 })
 
 .controller('ChatDetailCtrl', function($scope, $stateParams, Chats) {
-  $scope.chat = Chats.get($stateParams.chatId);
+   $scope.chat = Chats.get($stateParams.chatId);
 })
 
 .controller('SettingCtrl', function($scope) {
   $scope.settings = {
     enableFriends: true
   };
+})
+.controller("LoginController", function($scope, $firebaseAuth) {
+    $scope.login = function(username, password){
+        var fbAuth = $firebaseAuth(fb);
+        fbAuth.$authWithPassword({
+            email:username,
+            password:password
+        }).then (function(authData){
+            alert("Login successful!");
+        }).catch(function(error){
+            alert("login failed");
+        });
+    }
 });

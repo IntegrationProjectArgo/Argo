@@ -5,16 +5,19 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
+var fb = null;
 angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', 'starter.directives', 'ionic.contrib.ui.cards', 'firebase'])
 
+
 .constant('ApiEndPoint', {
-       url: 'http://vdabservices-cbt.vdab.be/vindeenjob/1.0.0/0/0'
+      url: 'http://vdabservices-cbt.vdab.be/vindeenjob/1.0.0/0/0'
        // url: 'http://vdabservices-cbt.vdab.be/vacaturedetail/1.O.O/53253476'
 
 })
 .constant('ApiDetailedEndPoint',{
         url: 'http://vdabservices-cbt.vdab.be/vacaturedetail/1.0.0'
 })
+
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -27,6 +30,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
       // org.apache.cordova.statusbar required
       StatusBar.styleLightContent();
     }
+      fb = new Firebase("https://argo.firebaseio.com/");
   });
 })
 
@@ -36,6 +40,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
   // Learn more here: https://github.com/angular-ui/ui-router
   // Set up the various states which the app can be in.
   // Each state's controller can be found in controllers.js
+
   $stateProvider
 
   // setup an abstract state for the tabs directive
@@ -44,6 +49,13 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
     abstract: true,
     templateUrl: "templates/tabs.html"
   })
+
+      .state("login", {
+          url: '/login',
+          templateUrl: 'login.html',
+          controller: 'LoginController'
+
+      })
 
   // Each tab has its own nav history stack:
 
@@ -56,26 +68,17 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
       }
     }
   })
-      .state('tab.login', {
-          url: '/login',
-          views: {
-              'tab-dash': {
-                  templateUrl: 'login.html',
-                  controller: 'DashCtrl'
-              }
-          }
-      })
 
   .state('tab.profile-detail', {
     url: '/dash/:profileId',
     views: {
-        'tab-dash': {            
+        'tab-dash': {
             templateUrl: 'templates/profile-detail.html',
             controller: 'ProfileDetailCtrl'
         }
     }
   })
-  
+
   .state('tab.favs', {
       url: '/favs',
       views: {
@@ -85,7 +88,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
         }
       }
     })
-  
+
   .state('tab.fav-detail', {
       url: '/favs/:favId',
       views: {
@@ -95,7 +98,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
         }
       }
     })
-  
+
   .state('tab.map', {
       url: '/map',
       views: {
@@ -143,9 +146,8 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
               controller: 'ConvoCtrl'
           }
       }
-  })
+  });
 
-  ;
 
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/tab/dash');
