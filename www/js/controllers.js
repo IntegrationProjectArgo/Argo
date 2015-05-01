@@ -1,5 +1,4 @@
 angular.module('starter.controllers', ['firebase'])
-angular.module('starter.controllers', ['firebase'])
 
 .controller ('ConnectionCtrl', function($scope, Api){
 
@@ -9,6 +8,65 @@ angular.module('starter.controllers', ['firebase'])
             $scope.data = result.data;
         })
 })
+    .controller ('LoginCtrl', ['$scope', '$firebaseSimpleLogin', function($scope, $state, $firebaseSimpleLogin){
+/*
+    var firebaseRef = new Firebase("https://argovdab.firebaseio.com/users/");
+
+    $scope.auth = $firebaseSimpleLogin(firebaseRef);
+    $scope.user = null;
+
+    // Logs a user in with inputted provider
+    $scope.login = function(provider){
+        $scope.auth.$login(provider);
+        $state.go('tab.dash');
+    };
+
+    //Logs user out
+    $scope.logout = function(){
+        $scope.auth.$logout();
+        $state.go('signIn')
+    };
+
+    //Succesful login, set the user object
+    $rootScope.$on("$firebaseSimpleLogin:login", function(event, user){
+        $scope.user = user;
+    });
+
+    //Succesful logout, reset the user object
+    $rootScope.$on("$firebaseSimpleLogin:logout", function(event){
+        $scope.user = null;
+    });
+
+    //log any login-related errors to console
+    $rootScope.$on("$firebaseSimpleLogin:error" , function(event, error){
+        console.log("Error logging user in: ", error);
+    });*/
+
+
+    var firebaseObj = new Firebase("https://argovdab.firebaseio.com")
+
+    var loginObj = $firebaseSimpleLogin(firebaseObj);
+
+    $scope.user = {};
+    $scope.Login = function(e){
+        e.preventDefault();
+        var email = $scope.user.email;
+        var wachtwoord = $scope.user.wachtwoord;
+        loginObj.$login('password',{
+            email: email,
+            password: wachtwoord
+        })
+            .then(function(user) {
+                //Succes
+                console.log('Authentication succesful' + user);
+            }, function(error) {
+                //Error
+                console.log('Authentication failure' + error);
+            });
+
+    }
+
+}])
 
 
 .controller('DashCtrl', function($scope, Profile) {

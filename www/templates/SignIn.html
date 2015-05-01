@@ -1,0 +1,23 @@
+<ion-view view-title="Sign-In">
+    <ion-content>
+        <div class="list">
+            <label class="item item-input">
+                <input type="text" placeholder="email" ng-model="user.email">
+            </label>
+            <label class="item item-input">
+                <input type="password"  placeholder="wachtwoord" ng-model="user.password">
+            </label>
+        </div>
+        <div class="padding">
+            <button class="button button-block button-positive" ng-click="login()">
+                Login
+            </button>
+            <button class="button button-block button-balanced">
+                Registreren
+            </button>
+            <p class="text-center">
+                <a href="#/forgot-password">Wachtwoord Vergeten?</a>
+            </p>
+        </div>
+    </ion-content>
+</ion-view>
