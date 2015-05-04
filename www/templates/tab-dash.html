@@ -1,5 +1,9 @@
 <link href="css/dash.css" rel="stylesheet">
 <ion-view view-title="Dashboard">
+    <ion-nav-buttons class="button button-positive" side="right">
+        <button id="emailbutton" class="button button-clear button-light"><i class="icon ion-ios-gear"></i></button>
+    </ion-nav-buttons>
+    </ion-nav-bar>
   <ion-content ng-controller="ConnectionCtrl">
     <div id = "top" class="list card">
             <a class="item item-avatar" href="#/tab/dash/{{profileDetail.id}}" >
