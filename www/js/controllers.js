@@ -185,16 +185,32 @@ angular.module('starter.controllers', ['firebase'])
     enableFriends: true
   };
 })
-.controller("LoginController", function($scope, $firebaseAuth) {
+.controller("LoginController", function($scope, $firebaseAuth, $state) {
     $scope.login = function(username, password){
         var fbAuth = $firebaseAuth(fb);
         fbAuth.$authWithPassword({
             email:username,
             password:password
         }).then (function(authData){
-            alert("Login successful!");
+            $state.go('tab.dash')
         }).catch(function(error){
-            alert("login failed");
+            console.log(error);
+        });
+    }
+    $scope.register = function(username, password){
+        var fbAuth = $firebaseAuth(fb);
+        var username = $scope.username;
+        var password = $scope.password;
+        fbAuth.$createUser(username, password).then(function() {
+                return fbAuth.$authWithPassword({
+                email: username,
+                password: password
+
+           });
+        }).then(function(authData){
+                alert("user created");
+        }).catch(function (error){
+                alert(error);
         });
     }
 });
