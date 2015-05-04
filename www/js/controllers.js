@@ -198,16 +198,16 @@ angular.module('starter.controllers', ['firebase'])
         });
     }
     $scope.register = function(username, password){
-        var fbAuth = $firebaseAuth(fb);
-        var username = $scope.username;
-        var password = $scope.password;
-        fbAuth.$createUser(username, password).then(function() {
-                return fbAuth.$authWithPassword({
-                email: username,
-                password: password
 
-           });
-        }).then(function(authData){
+        var fbAuth = $firebaseAuth(fb);
+        //var username = $scope.username;
+        //var password = $scope.password;
+        fbAuth.$createUser({
+            email:username,
+            password: password
+        })
+
+        .then(function(authData){
                 alert("user created");
         }).catch(function (error){
                 alert(error);
