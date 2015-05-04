@@ -1,14 +1,20 @@
 <link href="css/dash.css" rel="stylesheet">
 <ion-view view-title="Dashboard">
+    <ion-nav-buttons class="button button-positive" side="right">
+        <button id="emailbutton" class="button button-clear button-light"><i class="icon ion-ios-gear"></i></button>
+    </ion-nav-buttons>
+    </ion-nav-bar>
   <ion-content ng-controller="ConnectionCtrl">
     <div id = "top" class="list card">
             <a class="item item-avatar" href="#/tab/dash/{{profileDetail.id}}" >
                 <img class="avatar" ng-src={{profileDetail.face}}>
                 <div class="leftspace"><h2> {{profileDetail.name}}</h2><p style="float:right;position:relative;top:-25px;">Level {{profileDetail.level}}</p></p>
+                    <item><progress value="10" max="100"></progress></item>
                 </div>
-                <item><progress value="10" max="100"></progress></item>
+
             </a>
     </div>
+
 
       <ion-pane ng-controller="CardsCtrl">
         <swipe-cards>

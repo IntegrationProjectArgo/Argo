@@ -1,4 +1,9 @@
 /* Empty. Add your own CSS if you like */
+
+.leftspace{
+    padding-left:20px;
+}
+
 ion-nav-view{height:20px;}
 
 .scroll {
@@ -12,7 +17,7 @@ ion-nav-view{height:20px;}
 
 @keyframes example {
     0%   {color: white;}
-    50% {color: #007AFF;}
+    50% {color: #47BF32;}
     100% {color: white;}
 }
 
@@ -62,10 +67,10 @@ swipe-card .item-body{
 }
 #start-card{
     color: #fff;
-    background-color: #007aff;
+    background-color: #47BF32;
     line-height: 200px;
     word-wrap: break-word;
-    border: 0px solid #0c63ee;
+    border: 0px solid #47BF32;
     text-align: center;
     height: 50%;
     left:160px;
