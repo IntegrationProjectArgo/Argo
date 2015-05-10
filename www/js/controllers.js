@@ -178,6 +178,34 @@ angular.module('starter.controllers', ['firebase'])
 
 .controller('ChatDetailCtrl', function($scope, $stateParams, Chats) {
    $scope.chat = Chats.get($stateParams.chatId);
+
+        for (var index in $scope.chat.chatContents) {
+
+            document.getElementById("conversationwindow").innerHTML+="";
+            if($scope.chat.chatContents[index].messageType=="userMessage"){
+                document.getElementById("conversationwindow").innerHTML+= "<div class='userbubble'><p class='conversation userconversation'>" + $scope.chat.chatContents[index].messageContent + "</p><a class='usertimestamp'>" + $scope.chat.chatContents[index].messageTime + " " +$scope.chat.chatContents[index].messageDate +"</a>";
+            }
+
+            if($scope.chat.chatContents[index].messageType=="empMessage"){
+                document.getElementById("conversationwindow").innerHTML+= "<div class='employerbubble'><p class='conversation employerconversation'>" + $scope.chat.chatContents[index].messageContent + "</p><a class='timestamp'>" + $scope.chat.chatContents[index].messageTime + " " +$scope.chat.chatContents[index].messageDate +"</a>";
+            }
+
+            if($scope.chat.chatContents[index].messageType=="interviewNotification"){
+                document.getElementById("conversationwindow").innerHTML+="<div class='meeting'> <a href='#' class='item item-icon-left'> <i class='icon ion-ios-clock-outline'></i> <p>U heeft een sollicitatie gesprek!<br>Afspraak op " +  $scope.chat.chatContents[index].messageDate + " om " +  $scope.chat.chatContents[index].messageTime + ".";
+            }
+
+            if($scope.chat.chatContents[index].messageType=="ratingNotification"){
+                document.getElementById("conversationwindow").innerHTML+="<div class='rating'> <a href='#/tab/rate/' class='item item-icon-left'> <i class='icon ion-ios-star-outline'></i> <p>Hoe ging de sollicitatie?</p> <button class='button button-balanced bekijkroute'> Geef een score </button> </a> </div>";
+            }
+
+        }
+        document.getElementById("conversationwindow").innerHTML+="<br><br><br>";
+
+
+
+
+
+
 })
 
 .controller('RateCtrl', function($scope, $stateParams) {

@@ -9,45 +9,17 @@
 
 <link href="lib/ionic/css/ionic.css" rel="stylesheet">
 <link href="css/conversation_style.css" rel="stylesheet">
-    <div class="employerheader">
-        <img class="convoavatar" ng-src={{chat.face}}>
-        <h1 class="convotitle">{{chat.name}}</h1>
-        <h2 class="convoinfo">{{chat.company}}</h2>
-        <h2 class="convojob">Vacature: {{chat.vacature}}</h2>
 
-
-    </div>
     <ion-content class="contentconvo">
+        <div class="employerheader">
+            <img class="convoavatar" ng-src={{chat.face}}>
+            <h1 class="convotitle">{{chat.name}}</h1>
+            <h2 class="convoinfo">{{chat.company}}</h2>
+            <h2 class="convojob">Vacature: {{chat.vacature}}</h2>
 
-        <div class="userbubble">
-            <p class="conversation userconversation">k gimme job pls</p>
-            <a class="usertimestamp">15:36 3/4/2015</a>
         </div>
+        <div id="conversationwindow">
 
-        <div class="employerbubble">
-            <p class="conversation employerconversation">k, schoenmaat?</p>
-            <a class="timestamp">15:36 3/4/2015</a>
-        </div>
-
-
-        <div class="meeting">
-            <a href="#" class="item item-icon-left">
-                <i class="icon ion-ios-clock-outline"></i>
-                <p>U heeft een sollicitatie gesprek!<br>Afspraak op 24 april om 15u30.</p>
-                <button class="button button-balanced bekijkroute">
-                    Bekijk route
-                </button>
-            </a>
-        </div>
-
-        <div class="rating">
-            <a href="#/tab/rate/" class="item item-icon-left">
-                <i class="icon ion-ios-star-outline"></i>
-                <p>Hoe ging de sollicitatie?</p>
-                <button class="button button-balanced bekijkroute">
-                    Geef een score
-                </button>
-            </a>
         </div>
         <br><br><br>
     </ion-content>

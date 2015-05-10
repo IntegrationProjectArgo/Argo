@@ -89,19 +89,84 @@ angular.module('starter.services', [])
   // Some fake testing data
   var chats = [{
     id: 0,
+    empid: 0,
+    userid: 0,
     company:"Apple",
     name: 'Ben Sparrow',
     vacature: 'Programmer',
-    face: 'https://pbs.twimg.com/profile_images/514549811765211136/9SgAuHeY.png'
+    face: '../img/user_icon_200.png',
+    chatContents:[{
+        messageid: "0",
+        messageType:"userMessage",
+        messageContent:"hello",
+        messageTime:"16:33",
+        messageDate:"15/05/2015"
+    },
+    {
+        messageid: "1",
+        messageType:"empMessage",
+        messageContent:"hello thar",
+        messageTime:"16:37",
+        messageDate:"15/05/2015"
+    },
+    {
+        messageid: "2",
+        messageType:"interviewNotification",
+        messageContent:"",
+        messageTime:"14:00",
+        messageDate:"18/05/2015"
+    },
+    {
+        messageid: "3",
+        messageType:"ratingNotification",
+        messageContent:"",
+        messageTime:"",
+        messageDate:""
+    }
+
+    ]
+
   },
   {
-      id: 1,
+      id: 0,
+      empid: 0,
+      userid: 0,
       company:"Microsoft",
       name: 'Jos Vermeulen',
-      vacature: 'Project Manager',
-      face: 'http://www.uni-regensburg.de/Fakultaeten/phil_Fak_II/Psychologie/Psy_II/beautycheck/english/durchschnittsgesichter/m(01-32)_gr.jpg'
-  }
+      vacature: 'Programmer',
+      face: '../img/user_icon_200.png',
+      chatContents:[{
+          messageid: "0",
+          messageType:"userMessage",
+          messageContent:"hello",
+          messageTime:"16:33",
+          messageDate:"15/05/2015"
+      },
+          {
+              messageid: "1",
+              messageType:"empMessage",
+              messageContent:"hello thar",
+              messageTime:"16:37",
+              messageDate:"15/05/2015"
+          },
+          {
+              messageid: "2",
+              messageType:"interviewNotification",
+              messageContent:"",
+              messageTime:"14:00",
+              messageDate:"18/05/2015"
+          },
+          {
+              messageid: "3",
+              messageType:"ratingNotification",
+              messageContent:"",
+              messageTime:"",
+              messageDate:""
+          }
 
+      ]
+
+  }
 
   ];
 

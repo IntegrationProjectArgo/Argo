@@ -4,7 +4,9 @@
     padding-left:20px;
 }
 
-ion-nav-view{height:20px;}
+ion-nav-view{
+float:left;
+}
 
 .scroll {
     height: calc(100% - 100px);
