@@ -179,9 +179,9 @@ angular.module('starter.controllers', ['firebase'])
 .controller('ChatDetailCtrl', function($scope, $stateParams, Chats) {
    $scope.chat = Chats.get($stateParams.chatId);
 
+        document.getElementById("conversationwindow").innerHTML="";
         for (var index in $scope.chat.chatContents) {
 
-            document.getElementById("conversationwindow").innerHTML+="";
             if($scope.chat.chatContents[index].messageType=="userMessage"){
                 document.getElementById("conversationwindow").innerHTML+= "<div class='userbubble'><p class='conversation userconversation'>" + $scope.chat.chatContents[index].messageContent + "</p><a class='usertimestamp'>" + $scope.chat.chatContents[index].messageTime + " " +$scope.chat.chatContents[index].messageDate +"</a>";
             }
