@@ -74,6 +74,16 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
     }
   })
 
+  .state('tab.rate', {
+      url: '/rate/',
+      views: {
+          'tab-chats': {
+              templateUrl: 'templates/rating.html',
+              controller: 'RateCtrl'
+          }
+      }
+  })
+
   .state('tab.profile-detail', {
     url: '/dash/:profileId',
     views: {

@@ -180,6 +180,10 @@ angular.module('starter.controllers', ['firebase'])
    $scope.chat = Chats.get($stateParams.chatId);
 })
 
+.controller('RateCtrl', function($scope, $stateParams) {
+    $scope.Rate = null;
+})
+
 .controller('SettingCtrl', function($scope) {
   $scope.settings = {
     enableFriends: true

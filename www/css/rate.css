@@ -1,0 +1,17 @@
+
+
+.rate{
+    font-size:45px;
+    float: left;
+}
+.comment{
+    margin-top:60px;
+    background-color:#F2F2F2;
+    font-style:italic;
+}
+
+.delete{
+    float:right;
+    position:relative;
+    top:-5px;
+}
