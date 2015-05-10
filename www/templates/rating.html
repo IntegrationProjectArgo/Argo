@@ -1,0 +1,84 @@
+<!--
+  This template loads for the 'tab.friend-detail' state (app.js)
+  'friend' is a $scope variable created in the FriendsCtrl controller (controllers.js)
+  The FriendsCtrl pulls data from the Friends service (service.js)
+  The Friends service returns an array of friend data
+-->
+<ion-view view-title="Beoordeling">
+    <link href="css/rate.css" rel="stylesheet">
+    <ion-content>
+        <div class="list">
+            <a class="item" href="#">
+                <p>Hier kan u uw gesprek beoordelen. Tevreden? Ontevreden? Laat het ons weten.</p>
+            </a>
+
+            <div class="item item-divider">
+                Gesprek
+            </div>
+
+            <a class="item" href="#">
+                <p>Formaliteiten: Werd er een correcte professionele sfeer gehanteerd?</p>
+                <i class="icon ion-ios-star-outline rate"></i>
+                <i class="icon ion-ios-star-outline rate"></i>
+                <i class="icon ion-ios-star-outline rate"></i>
+                <i class="icon ion-ios-star-outline rate"></i>
+                <i class="icon ion-ios-star-outline rate"></i>
+                <button class="button button-outline button-positive" style="float:right;">
+                    <i class="icon ion-compose"></i> Commentaar
+                </button>
+                <div class="item comment">
+                    <i class="icon ion-close delete"></i>
+                    <p>Zeer correcte en vriendelijke persoon!</p>
+                </div>
+            </a>
+
+            <a class="item" href="#">
+                <p>Respect: Voelde u zich gerespecteerd?</p>
+                <i class="icon ion-ios-star-outline rate"></i>
+                <i class="icon ion-ios-star-outline rate"></i>
+                <i class="icon ion-ios-star-outline rate"></i>
+                <i class="icon ion-ios-star-outline rate"></i>
+                <i class="icon ion-ios-star-outline rate"></i>
+                <button class="button button-outline button-positive" style="float:right;">
+                    <i class="icon ion-compose"></i> Commentaar
+                </button>
+
+            </a>
+
+            <div class="item item-divider">
+                Selectie
+            </div>
+
+            <a class="item" href="#">
+                <p>Procedure: Vond u dat uw capaciteiten goed beoordeeld werden?</p>
+                <i class="icon ion-ios-star-outline rate"></i>
+                <i class="icon ion-ios-star-outline rate"></i>
+                <i class="icon ion-ios-star-outline rate"></i>
+                <i class="icon ion-ios-star-outline rate"></i>
+                <i class="icon ion-ios-star-outline rate"></i>
+                <button class="button button-outline button-positive" style="float:right;">
+                    <i class="icon ion-compose"></i> Commentaar
+                </button>
+            </a>
+
+            <div class="item item-divider">
+                Ten slotte...
+            </div>
+
+            <div class="item">
+                <p>In hoeverre denkt u dat u kans maakt op deze job?</p>
+                <div class="item range">
+                    <i class="icon ion-thumbsdown"></i>
+                    <input type="range" name="volume">
+                    <i class="icon ion-thumbsup"></i>
+                </div>
+            </div>
+
+            <button class="button button-block button-balanced">
+                Verzenden
+            </button>
+
+
+        </div>
+    </ion-content>
+</ion-view>
