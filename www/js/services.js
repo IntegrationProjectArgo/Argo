@@ -64,7 +64,9 @@ angular.module('starter.services', [])
                 company: 'Self-Employed',
                 duur: '1 Jaar',
                 nota: 'Johny B.Goode uitgevonden tijdens de schoolbal'
-            }]
+            }
+
+            ]
 
         }];
 

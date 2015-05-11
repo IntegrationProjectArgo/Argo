@@ -52,16 +52,13 @@ swipe-card{
     display: none;
     position: fixed;
     -webkit-transform: scale(1,1);
-    left: 41%;
-    top: 53%;
-    width: 370px;
+    left: 12px;
+    top: 150px;
+    width:calc(100% - 25px);
     height:100%; /*350px*/
-    margin-left: -150px;
-    margin-top: -150px;
-    box-sizing: border-box;
     background-color: rgb(255,255,255);
     border-radius: 4px;
-    overflow: hidden;
+    overflow: visible;
     -webkit-animation-fill-mode: forwards;
 }
 swipe-card .item-body{
@@ -75,8 +72,8 @@ swipe-card .item-body{
     border: 0px solid #47BF32;
     text-align: center;
     height: 50%;
-    left:160px;
-    top:310px;
+    left:2%;
+    top:150px;
     width:calc(100% - 25px);
     box-shadow: lightgrey 2px 2px 2px;
 }

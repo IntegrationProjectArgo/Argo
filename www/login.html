@@ -1,10 +1,11 @@
 <ion-view view-title="Argo VDAB">
     <style>
-        ion-content{
+        ion-content#logincontent{
             background-image: url("./img/wallpaper.png");
+            background-position:top center;
         }
     </style>
-    <ion-content>
+    <ion-content id="logincontent">
 
             <center><img src="img/logodark.png" height="250" style="margin-top:20px;"></center>
         <div class="list list-inset" style="width:90%; margin-left:5%;">
@@ -21,9 +22,8 @@
             Inloggen
         </button>
         <button ng-click="register(username, password)" class="button button-block button-balanced">
-            Registreren
+            Nog geen account?
         </button>
         </div>
-
     </ion-content>
  </ion-view>
