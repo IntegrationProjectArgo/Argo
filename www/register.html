@@ -1,0 +1,44 @@
+<ion-view view-title="registreren">
+    <ion-content>
+        <div class="list list-inset">
+
+            <label class="item item-input">
+                <input ng-model="voornaam" type="text" placeholder="Voornaam"/>
+            </label>
+            <label class="item item-input">
+                <input ng-model="achternaam" type="text" placeholder="Achternaam"/>
+            </label>
+            <label class="item item-input">
+                <input ng-model="woonplaats" type="text" placeholder="Woonplaats"/>
+            </label>
+            <label class="item item-input">
+                <input ng-model="postcode" type="text" placeholder="Postcode"/>
+            </label>
+            <label class="item item-input">
+                <input ng-model="straat" type="text" placeholder="Straat"/>
+            </label>
+            <label class="item item-input">
+                <input ng-model="telefoon" type="text" placeholder="Telefoon"/>
+            </label>
+            <label class="item item-input">
+                <input ng-model="mobiel" type="text" placeholder="Mobiel"/>
+            </label>
+            <label class="item item-input">
+                <input ng-model="email" type="text" placeholder="e-mail"/>
+            </label>
+            <label class="item item-input">
+                <input ng-model="paswoord" type="password" placeholder="Paswoord"/>
+            </label>
+            <label class="item item-input">
+                <input ng-model="confpaswoord" type="password" placeholder="Bevestig paswoord"/>
+            </label>
+
+        </div>
+        <div>
+            <button ng-click="register(voornaam, achternaam, woonplaats, postcode, straat, telefoon, mobiel, email, paswoord, confpaswoord )" class="button button-block button-balanced">
+                Bevestigen
+            </button>
+        </div>
+
+    </ion-content>
+</ion-view>
