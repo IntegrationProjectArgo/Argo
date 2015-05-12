@@ -54,7 +54,7 @@ div.employerheader{
     color: #fff;
     margin-top:44px;
     height:101px;
-    box-shadow: 2px 2px 2px #888888;
+
 }
 
 p.employername{
@@ -79,7 +79,7 @@ a.usertimestamp{
     padding-left:10px;
     padding-bottom:10px;
     margin-top:0px;
-    color:lightgrey;
+    color:white;
 }
 
 ion-content.contentconvo{
@@ -95,6 +95,7 @@ div.employerbubble
     min-height: 50px;
     height:auto;
     position: relative;
+
     padding: 0px;
     background: lightgrey;
     -webkit-border-radius: 10px;
@@ -113,7 +114,7 @@ div.employerbubble
     display: block;
     width: 0;
     z-index: 1;
-    left: -11px;
+    left: -10px;
     top: 12px;
 }
 
@@ -130,10 +131,11 @@ div.employerbubble
     min-height:50px;
     height: auto;
     padding: 0px;
-    background: #387ef5;
+    background: #4ad838;
     -webkit-border-radius: 10px;
     -moz-border-radius: 10px;
     border-radius: 10px;
+    color:white;
 }
 
 .userbubble:after
@@ -143,7 +145,7 @@ div.employerbubble
     position: absolute;
     border-style: solid;
     border-width: 11px 0 11px 10px;
-    border-color: transparent #387ef5;
+    border-color: transparent #4ad838;
     display: block;
     width: 0;
     z-index: 1;

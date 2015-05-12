@@ -70,8 +70,50 @@ angular.module('starter.controllers', ['firebase'])
         }
     })
 
-.controller('ProfileDetailCtrl', function($scope, $stateParams, Profile) {
+.controller('ProfileDetailCtrl', function($scope, $stateParams, $ionicPopover, Profile) {
     $scope.profileDetail = Profile.get(0);
+
+        // .fromTemplate() method
+        var template = '<ion-popover-view><ion-header-bar> <h1 class="title">My Popover Title</h1> </ion-header-bar> <ion-content> Hello! </ion-content></ion-popover-view>';
+
+        $scope.popover = $ionicPopover.fromTemplate(template, {
+            scope: $scope
+        });
+
+        // .fromTemplateUrl() method
+        $ionicPopover.fromTemplateUrl('my-popover.html', {
+            scope: $scope
+        }).then(function(popover) {
+            $scope.popover = popover;
+        });
+        $ionicPopover.fromTemplateUrl('popover.html', {
+            scope: $scope
+        }).then(function(popover) {
+            $scope.popover = popover;
+        });
+        $ionicPopover.fromTemplateUrl('over.html', {
+            scope: $scope
+        }).then(function(popover) {
+            $scope.popover = popover;
+        });
+        $scope.openPopover = function($event) {
+            $scope.popover.show($event);
+        };
+        $scope.closePopover = function() {
+            $scope.popover.hide();
+        };
+        //Cleanup the popover when we're done with it!
+        $scope.$on('$destroy', function() {
+            $scope.popover.remove();
+        });
+        // Execute action on hide popover
+        $scope.$on('popover.hidden', function() {
+            // Execute action
+        });
+        // Execute action on remove popover
+        $scope.$on('popover.removed', function() {
+            // Execute action
+        });
 })
 
 .controller('FavsCtrl', function($scope, Favs, $timeout) {
@@ -178,6 +220,10 @@ angular.module('starter.controllers', ['firebase'])
 
 .controller('ChatDetailCtrl', function($scope, $stateParams, Chats) {
    $scope.chat = Chats.get($stateParams.chatId);
+})
+
+.controller('RateCtrl', function($scope, $stateParams) {
+    $scope.Rate = null;
 })
 
 .controller('SettingCtrl', function($scope) {
