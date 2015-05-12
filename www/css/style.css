@@ -61,8 +61,19 @@ swipe-card{
     overflow: visible;
     -webkit-animation-fill-mode: forwards;
 }
-swipe-card .item-body{
-    height: 200px;
+swipe-card .titel{
+    height: 75px;
+    background:#47BF32;
+}
+h2#cardtitel{
+    color:white;
+}
+swipe-card .omschrijving{
+    height: 170px;
+}
+swipe-card .tijdsregeling{
+    background-color:#F2F2F2;
+    height: 50px;
 }
 #start-card{
     color: #fff;

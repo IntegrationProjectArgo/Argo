@@ -29,19 +29,18 @@
 
             <swipe-card ng-repeat="card in cards" on-destroy="cardDestroyed($index)" on-card-swipe="cardSwiped($index)">
                 <div ng-controller="CardCtrl" class="list card">
-                    <div class="item item-avatar-left">
-                        <img ng-src="{{card.image}}" class="image">
-                        <h2>{{card.title}}</h2>
-                        <p>{{card.vacPlacer}}</p>
+                    <div class="item titel">
+                        <h2 id="cardtitel">{{card.functieNaam}}</h2>
+                        <p>{{card.plaatsTewerkstelling.gemeenteOfRegio}}</p>
+                        <a style="position:absolute; top: 10px; right: 10px;" class="button button-balanced" ng-click="goAway()"><i class="icon ion-star"> </i></a>
+                    </div>
+                    <div class="item item-body omschrijving">
+                        <p>{{card.functieOmschrijving}}</p>
+                    </div>
+                    <div class="item tijdsregeling">
+                        <p>{{card.aanbodEnVoordelen.tijdregeling}}: {{card.aanbodEnVoordelen.soortJob}}</p>
+                    </div>
 
-                    </div>
-                    <div class="item item-body">
-                        {{card.description}}
-                    </div>
-                    <div class="button-bar">
-                        <a class="button button-balanced" ng-click="goAway()"><i class="icon ion-star"> </i>Toevoegen aan Interesse</a>
-
-                    </div>
                 </div>
 
             </swipe-card>

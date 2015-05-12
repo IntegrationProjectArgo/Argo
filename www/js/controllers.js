@@ -16,34 +16,8 @@ angular.module('starter.controllers', ['firebase'])
 
 
 })
-    .controller('CardsCtrl', function($scope, $ionicSwipeCardDelegate){
-        var cardTypes = [{
-            title: 'Card 1',
-            image: '../img/2000px-M_box.svg.png',
-            vacPlacer: 'Microsoft',
-            description: 'This is a Description'
-        },{
-            title: 'Card 2',
-            image: '../img/Cisco_logo.svg',
-            vacPlacer: 'Cisco',
-            description: 'This is a Description'
-        },{
-            title: 'Card 3',
-            image: '../img/ibm-logo-3-620x350.jpg',
-            vacPlacer: 'IBM',
-            description: 'This is a Description'
-        },{
-            title: 'Card 4',
-            image: '../img/Apple_logo_black.svg.png',
-            vacPlacer: 'Apple',
-            description: 'This is a Description'
-        },{
-            title: 'Card 5',
-            image: '../img/favicon.png',
-            vacPlacer: 'Google',
-            description: 'This is a Description'
-        }
-        ];
+    .controller('CardsCtrl', function($scope, $ionicSwipeCardDelegate, Favs){
+        var cardTypes = Favs.all();
 
         $scope.cards = Array.prototype.slice.call(cardTypes, 0, 0);
 
