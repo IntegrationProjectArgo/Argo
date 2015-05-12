@@ -186,6 +186,9 @@ angular.module('starter.controllers', ['firebase'])
   };
 })
 .controller("LoginController", function($scope, $firebaseAuth, $state) {
+        $scope.registerlink = function(){
+           $state.go('register');
+        }
     $scope.login = function(username, password){
         var fbAuth = $firebaseAuth(fb);
         fbAuth.$authWithPassword({
@@ -197,20 +200,33 @@ angular.module('starter.controllers', ['firebase'])
             console.log(error);
         });
     }
-    $scope.register = function(username, password){
+    $scope.register = function(voornaam, achternaam, woonplaats, postcode, straat, telefoon, mobiel, email, paswoord, confpaswoord ){
 
         var fbAuth = $firebaseAuth(fb);
+        var uid;
         //var username = $scope.username;
         //var password = $scope.password;
         fbAuth.$createUser({
-            email:username,
-            password: password
+            email:email,
+            password: paswoord
         })
 
         .then(function(authData){
                 alert("user created");
+                alert(authData.uid);
+                fbRegister.child(authData.uid).set( {
+                    "voornaam": voornaam,
+                    "achternaam": achternaam,
+                    "woonplaats": woonplaats,
+                    "postcode": postcode,
+                    "straat": straat,
+                    "telefoon": telefoon,
+                    "mobiel": mobiel
+
+                })
         }).catch(function (error){
                 alert(error);
         });
+
     }
 });
