@@ -16,34 +16,8 @@ angular.module('starter.controllers', ['firebase'])
 
 
 })
-    .controller('CardsCtrl', function($scope, $ionicSwipeCardDelegate){
-        var cardTypes = [{
-            title: 'Card 1',
-            image: '../img/2000px-M_box.svg.png',
-            vacPlacer: 'Microsoft',
-            description: 'This is a Description'
-        },{
-            title: 'Card 2',
-            image: '../img/Cisco_logo.svg',
-            vacPlacer: 'Cisco',
-            description: 'This is a Description'
-        },{
-            title: 'Card 3',
-            image: '../img/ibm-logo-3-620x350.jpg',
-            vacPlacer: 'IBM',
-            description: 'This is a Description'
-        },{
-            title: 'Card 4',
-            image: '../img/Apple_logo_black.svg.png',
-            vacPlacer: 'Apple',
-            description: 'This is a Description'
-        },{
-            title: 'Card 5',
-            image: '../img/favicon.png',
-            vacPlacer: 'Google',
-            description: 'This is a Description'
-        }
-        ];
+    .controller('CardsCtrl', function($scope, $ionicSwipeCardDelegate, Favs){
+        var cardTypes = Favs.all();
 
         $scope.cards = Array.prototype.slice.call(cardTypes, 0, 0);
 
@@ -220,6 +194,34 @@ angular.module('starter.controllers', ['firebase'])
 
 .controller('ChatDetailCtrl', function($scope, $stateParams, Chats) {
    $scope.chat = Chats.get($stateParams.chatId);
+
+        document.getElementById("conversationwindow").innerHTML="";
+        for (var index in $scope.chat.chatContents) {
+
+            if($scope.chat.chatContents[index].messageType=="userMessage"){
+                document.getElementById("conversationwindow").innerHTML+= "<div class='userbubble'><p class='conversation userconversation'>" + $scope.chat.chatContents[index].messageContent + "</p><a class='usertimestamp'>" + $scope.chat.chatContents[index].messageTime + " " +$scope.chat.chatContents[index].messageDate +"</a>";
+            }
+
+            if($scope.chat.chatContents[index].messageType=="empMessage"){
+                document.getElementById("conversationwindow").innerHTML+= "<div class='employerbubble'><p class='conversation employerconversation'>" + $scope.chat.chatContents[index].messageContent + "</p><a class='timestamp'>" + $scope.chat.chatContents[index].messageTime + " " +$scope.chat.chatContents[index].messageDate +"</a>";
+            }
+
+            if($scope.chat.chatContents[index].messageType=="interviewNotification"){
+                document.getElementById("conversationwindow").innerHTML+="<div class='meeting'> <a href='#' class='item item-icon-left'> <i class='icon ion-ios-clock-outline'></i> <p>U heeft een sollicitatie gesprek!<br>Afspraak op " +  $scope.chat.chatContents[index].messageDate + " om " +  $scope.chat.chatContents[index].messageTime + ".";
+            }
+
+            if($scope.chat.chatContents[index].messageType=="ratingNotification"){
+                document.getElementById("conversationwindow").innerHTML+="<div class='rating'> <a href='#/tab/rate/' class='item item-icon-left'> <i class='icon ion-ios-star-outline'></i> <p>Hoe ging de sollicitatie?</p> <button class='button button-balanced bekijkroute'> Geef een score </button> </a> </div>";
+            }
+
+        }
+        document.getElementById("conversationwindow").innerHTML+="<br><br><br>";
+
+
+
+
+
+
 })
 
 .controller('RateCtrl', function($scope, $stateParams) {

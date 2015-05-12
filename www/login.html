@@ -1,8 +1,15 @@
 <ion-view view-title="Argo VDAB">
-    <ion-content>
-        <div class="list list-inset">
-            <center><img src="img/logolight.png" height="250"></center>
-            <label class="item item-input" style="margin-top:25px;">
+    <style>
+        ion-content#logincontent{
+            background-image: url("./img/wallpaper.png");
+            background-position:top center;
+        }
+    </style>
+    <ion-content id="logincontent">
+
+            <center><img src="img/logodark.png" height="250" style="margin-top:20px;"></center>
+        <div class="list list-inset" style="width:90%; margin-left:5%;">
+            <label class="item item-input">
 
                 <input ng-model="username" type="text" placeholder="Username"/>
             </label>
@@ -18,6 +25,5 @@
                Registreren
             </button>
         </div>
-
     </ion-content>
 </ion-view>
