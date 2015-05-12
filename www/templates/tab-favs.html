@@ -6,9 +6,9 @@
       </ion-refresher>
     <ion-list>
       <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="fav in favs" type="item-text-wrap" href="#/tab/favs/{{fav.id}}">
-        <img ng-src="{{fav.image}}">
-        <h2>{{fav.BEROEP}}</h2>
-        <p>{{fav.GEMEENTE}}</p>
+        <h2>{{favs[$index].functieNaam}}</h2>
+        <p>{{favs[$index].plaatsTewerkstelling.gemeenteOfRegio}}</p>
+
         <i class="icon ion-chevron-right icon-accessory"></i>
 
         <ion-option-button class="button-assertive" ng-click="remove(fav)">
