@@ -52,7 +52,8 @@ div.employerheader{
     border-bottom-width: 1px;
     background-color: white;
     color: #fff;
-    margin-top:44px;
+    position:relative;
+    top:-20px;
     height:101px;
 
 }
@@ -83,8 +84,8 @@ a.usertimestamp{
 }
 
 ion-content.contentconvo{
-    margin-top:102px;
-    height:calc(100% - 180px);
+
+    height:100%
 }
 
 div.employerbubble

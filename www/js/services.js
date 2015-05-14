@@ -64,7 +64,9 @@ angular.module('starter.services', [])
                 company: 'Self-Employed',
                 duur: '1 Jaar',
                 nota: 'Johny B.Goode uitgevonden tijdens de schoolbal'
-            }]
+            }
+
+            ]
 
         }];
 
@@ -89,19 +91,84 @@ angular.module('starter.services', [])
   // Some fake testing data
   var chats = [{
     id: 0,
+    empid: 0,
+    userid: 0,
     company:"Apple",
     name: 'Ben Sparrow',
     vacature: 'Programmer',
-    face: 'https://pbs.twimg.com/profile_images/514549811765211136/9SgAuHeY.png'
+    face: '../img/user_icon_200.png',
+    chatContents:[{
+        messageid: "0",
+        messageType:"userMessage",
+        messageContent:"hello",
+        messageTime:"16:33",
+        messageDate:"15/05/2015"
+    },
+    {
+        messageid: "1",
+        messageType:"empMessage",
+        messageContent:"hello thar",
+        messageTime:"16:37",
+        messageDate:"15/05/2015"
+    },
+    {
+        messageid: "2",
+        messageType:"interviewNotification",
+        messageContent:"",
+        messageTime:"14:00",
+        messageDate:"18/05/2015"
+    },
+    {
+        messageid: "3",
+        messageType:"ratingNotification",
+        messageContent:"",
+        messageTime:"",
+        messageDate:""
+    }
+
+    ]
+
   },
   {
-      id: 1,
+      id: 0,
+      empid: 0,
+      userid: 0,
       company:"Microsoft",
       name: 'Jos Vermeulen',
-      vacature: 'Project Manager',
-      face: 'http://www.uni-regensburg.de/Fakultaeten/phil_Fak_II/Psychologie/Psy_II/beautycheck/english/durchschnittsgesichter/m(01-32)_gr.jpg'
-  }
+      vacature: 'Programmer',
+      face: '../img/user_icon_200.png',
+      chatContents:[{
+          messageid: "0",
+          messageType:"userMessage",
+          messageContent:"hello",
+          messageTime:"16:33",
+          messageDate:"15/05/2015"
+      },
+          {
+              messageid: "1",
+              messageType:"empMessage",
+              messageContent:"hello thar",
+              messageTime:"16:37",
+              messageDate:"15/05/2015"
+          },
+          {
+              messageid: "2",
+              messageType:"interviewNotification",
+              messageContent:"",
+              messageTime:"14:00",
+              messageDate:"18/05/2015"
+          },
+          {
+              messageid: "3",
+              messageType:"ratingNotification",
+              messageContent:"",
+              messageTime:"",
+              messageDate:""
+          }
 
+      ]
+
+  }
 
   ];
 
@@ -127,106 +194,89 @@ angular.module('starter.services', [])
   // Might use a resource here that returns a JSON array
 
   // Some fake testing data
-    var favs = [    {
-        "id": "0",
-        "JAAR": "2014",
-        "MAAND": "1401",
-        "ARBEIDSCIRCUIT": "AP gewoon activaplan",
-        "GEGROEPEERD_ARBEIDSCIRCUIT": "NECzU",
-        "BEROEP": "AB8330 Commercieel medewerker",
-        "BEROEPSGROEP": "AB Gespecialiseerde administratief medewerkers",
-        "DIMENSIEKLASSE": "01. niet gekend",
-        "ERVARING": "3. + 2jaar",
-        "NACE_OMSCHRIJVING": "7121 Verhuur v overige transportmidd voor vervoer te land",
-        "NISCODE": "37007",
-        "GEMEENTE": "37007 Meulebeke",
-        "ARRONDISSEMENT": "37 Tielt",
-        "PROVINCIE": "3 West-Vlaanderen",
-        "AMB_REGIO": "34 Kortrijk-Roeselare",
-        "RESOCC": "36 Midden-West-Vlaanderen",
-        "SERR": "36 Midden-West-Vlaanderen",
-        "RIJBEWIJS": "",
-        "SECTOR": "tertiaire sector",
-        "SECTOR_ARVASTAT": "19. Zakelijke dienstverlening",
-        "SECTOR_WSE": "t16 Overige zakelijke dienstverlening",
-        "BEHEER": "J",
-        "STUDIENIVEAU_BASIS": "00 Geen studievereisten",
-        "STUDIENIVEAU_DETAIL": "00 Geen studievereisten",
-        "TIJDSREGELING": "dagwerk",
-        "TAAL_ENGELS": "J",
-        "TAAL_FRANS": "J",
-        "TAAL_DUITS": "N",
-        "VOLTIJDS_DEELTIJDS": "voltijds",
-        "ONTVANGEN": 0,
-        "OPENSTAAND": 1
-    },
-        {
-            "id": 1,
-            "JAAR": "2014",
-            "MAAND": "1401",
-            "ARBEIDSCIRCUIT": "AP gewoon activaplan",
-            "GEGROEPEERD_ARBEIDSCIRCUIT": "NECzU",
-            "BEROEP": "AB8330 Commercieel medewerker",
-            "BEROEPSGROEP": "AB Gespecialiseerde administratief medewerkers",
-            "DIMENSIEKLASSE": "02. <5 WN",
-            "ERVARING": "3. + 2jaar",
-            "NACE_OMSCHRIJVING": "5134 Groothandel in dranken",
-            "NISCODE": "21007",
-            "GEMEENTE": "99999 Buiten Vlaanderen",
-            "ARRONDISSEMENT": "99 Buiten Vlaanderen",
-            "PROVINCIE": "9  Buiten Vlaanderen",
-            "AMB_REGIO": "99 Buiten Vlaanderen",
-            "RESOCC": "99 Buiten Vlaanderen",
-            "SERR": "99 Buiten Vlaanderen",
-            "RIJBEWIJS": "B",
-            "SECTOR": "tertiaire sector",
-            "SECTOR_ARVASTAT": "14. Groot- en kleinhandel",
-            "SECTOR_WSE": "t3  Groothandel en handelsbemiddeling",
-            "BEHEER": "N",
-            "STUDIENIVEAU_BASIS": "01 Laaggeschoold",
-            "STUDIENIVEAU_DETAIL": "01 Lager onderwijs + 1e graad sec",
-            "TIJDSREGELING": "dagwerk",
-            "TAAL_ENGELS": "N",
-            "TAAL_FRANS": "J",
-            "TAAL_DUITS": "N",
-            "VOLTIJDS_DEELTIJDS": "voltijds",
-            "ONTVANGEN": 1,
-            "OPENSTAAND": 1
+    var favs = [{
+
+        "id":53253476,
+        "functieNaam":"Schrijnwerker  ploegbaas arendonk",
+        "aantalJobs":1,
+        "functieOmschrijving":"<p>Je taken bestaan voornamelijk uit het plaatsen van ramen, deuren en daktimmer. Als ploegbaas zorg je ervoor dat je team de                                             werken uitvoert met de meeste zorg en kwaliteit. Je ziet erop toe dat alles correct verloopt. Je werkt zelf ook mee.</p>",
+        "organisatie":{
+            "straat":"Monnikenwerve 191",
+            "postCode":"8000",
+            "gemeente":"BRUGGE",
+            "land":"BELGIE",
+            "naam":"BOUWJOBS"
         },
-        {
-            "id": 2,
-            "JAAR": "2014",
-            "MAAND": "1401",
-            "ARBEIDSCIRCUIT": "AP gewoon activaplan",
-            "GEGROEPEERD_ARBEIDSCIRCUIT": "NECzU",
-            "BEROEP": "AC1310 Administratief medewerker",
-            "BEROEPSGROEP": "AC Algemeen administratief medewerkers",
-            "DIMENSIEKLASSE": "03. 5 - 9 WN",
-            "ERVARING": "3. + 2jaar",
-            "NACE_OMSCHRIJVING": "5184 Groothandel in computers, randapparatuur en programmatuur",
-            "NISCODE": "11040",
-            "GEMEENTE": "11040 Schoten",
-            "ARRONDISSEMENT": "11 Antwerpen",
-            "PROVINCIE": "1 Antwerpen",
-            "AMB_REGIO": "11 Antwerpen-Boom",
-            "RESOCC": "11 Antwerpen",
-            "SERR": "11 Antwerpen",
-            "RIJBEWIJS": "",
-            "SECTOR": "tertiaire sector",
-            "SECTOR_ARVASTAT": "14. Groot- en kleinhandel",
-            "SECTOR_WSE": "t3  Groothandel en handelsbemiddeling",
-            "BEHEER": "N",
-            "STUDIENIVEAU_BASIS": "02 Middengeschoold",
-            "STUDIENIVEAU_DETAIL": "09 3e en 4e graad sec. beroeps",
-            "TIJDSREGELING": "onbekend",
-            "TAAL_ENGELS": "N",
-            "TAAL_FRANS": "J",
-            "TAAL_DUITS": "N",
-            "VOLTIJDS_DEELTIJDS": "voltijds",
-            "ONTVANGEN": 1,
-            "OPENSTAAND": 0
-        }
-    ];
+        "plaatsTewerkstelling":{
+            "naam":null,
+            "adresLijnen":["2370 ARENDONK"],
+            "gemeenteOfRegio":"ARENDONK"
+        },
+        "profiel":{
+            "vereisten":"<p>Als schrijnwerker ploegbaas<br />wordt er van je verwacht dat je een ervaren schrijnwerker bent die een team van ongeveer 3                                         medewerkers kan aansturen. Je kan uiteraard perfect plan lezen en aangezien je ook datimmerwerken uitvoert heb je absoluut GEEN                                       hoogtevrees. Door je ruime kennis en ervaring kan je team ook op je terug vallen wanneer ze vragen hebben</p>",
+            "werkervaring":"Minstens 5 jaar ervaring",
+            "talen":[],
+            "algemeneVereisten":"<p>Als schrijnwerker ploegbaas<br />wordt er van je verwacht dat je een ervaren schrijnwerker bent die een team van ongeveer                                            3 medewerkers kan aansturen. Je kan uiteraard perfect plan lezen en aangezien je ook datimmerwerken uitvoert heb je absoluut                                              GEEN hoogtevrees. Door je ruime kennis en ervaring kan je team ook op je terug vallen wanneer ze vragen hebben.</p>",
+            "diplomaOfGelijkwaardigDoorErvaring":false,
+            "rijbewijzen":["B"],
+            "attesten":[],
+            "studies":["3de of 4de graad beroepssecundair onderwijs (BSO3 of BSO4)"],
+            "minimumLeeftijd":null,
+            "maximumLeeftijd":null
+        },
+        "aanbodEnVoordelen":{
+            "soortJob":"Interim met optie \"vast werk\"",
+            "arbeidscontract":null,
+            "tijdregeling":"Voltijds",
+            "omschrijving":"<p>Kans op een vast job na een geslaagde proefperiode binnen een zeer stabiel bedrijf.</p> <p>Een zeer gedreven en amitieus bedrijf in regio Arendonk.<br /><br />Solliciteer nu:<br />Accent Construct<br />De merodelei                                                84<br />2300 Turnhout<br />014/40.85.50<br />turnhout.construct@be.accent.jobs</p>",
+        "minimumBrutoLoon":null,
+            "maximumBrutoLoon":null,
+            "vermoedelijkeStartdatum":null,
+            "bereikbaarheid":null,
+            "referentie":null
+    },
+    "solliciteren":{
+    "adres":{
+        "naam":null,
+            "adresLijnen":["2300 TURNHOUT"],
+            "gemeenteOfRegio":"TURNHOUT"
+    },
+    "contactpersoon":{
+        "naam":"Accent Construct TURNHOUT ",
+            "telefoon":null,
+            "email":null,
+            "fax":null,
+            "functie":null
+    },
+    "extraInfo":null,
+        "emailAdresVoorSollicitatieViaEmail":null,
+        "telefoon":null,
+        "fax":null,
+        "webformulier":"http://www.bouwjobs.be/nl/job/101283/schrijnwerker-ploegbaas-arendonk",
+        "brief":false,
+        "persoonlijk":false,
+        "vdabSite":false,
+        "formulier":null,
+        "cvGewenst":null
+},
+"beheerder":null,
+    "vacatureInfo":{
+    "vacatureDatum":"14 september 2014",
+        "laatsteWijziging":"30 november 2014",
+        "referentie":"BJID101283"
+},
+"ongestructureerdeVacatureUrl":null,
+    "vacatureVerspreider":{
+    "bij":"BOUWJOBS",
+        "via":null
+},
+"gepubliceerd":false,
+    "competentieSjabloon":{
+    "code":"F160701-1",
+        "label":"Buitenschrijnwerker "
+},
+"dubbels":[]
+}];
 
   return {
     all: function() {

@@ -6,6 +6,7 @@
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
 var fb = null;
+var fbRegister= null;
 angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', 'starter.directives', 'ionic.contrib.ui.cards', 'firebase'])
 
 
@@ -31,6 +32,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
       StatusBar.styleLightContent();
     }
       fb = new Firebase("https://argo.firebaseio.com/");
+      fbRegister = new Firebase("https://argo.firebaseio.com/users/");
   });
 })
 
@@ -47,6 +49,12 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
       .state("login", {
           url: '/login',
           templateUrl: 'login.html',
+          controller: 'LoginController'
+
+      })
+      .state("register", {
+          url: '/register',
+          templateUrl: 'register.html',
           controller: 'LoginController'
 
       })
