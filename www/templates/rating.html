@@ -9,7 +9,8 @@
     <ion-content>
         <div class="list">
             <a class="item" href="#">
-                <p>Hier kan u uw gesprek beoordelen. Tevreden? Ontevreden? Laat het ons weten.</p>
+                <p>Hier kan u uw gesprek beoordelen.
+                    <br/> Tevreden? Ontevreden? Laat het ons weten.</p>
             </a>
 
             <div class="item item-divider">
@@ -18,11 +19,13 @@
 
             <a class="item" href="#">
                 <p>Formaliteiten: Werd er een correcte professionele sfeer gehanteerd?</p>
-                <i class="icon ion-ios-star-outline rate"></i>
-                <i class="icon ion-ios-star-outline rate"></i>
-                <i class="icon ion-ios-star-outline rate"></i>
-                <i class="icon ion-ios-star-outline rate"></i>
-                <i class="icon ion-ios-star-outline rate"></i>
+
+                <div class="item range">
+                    <i class="icon ion-thumbsdown"></i>
+                    <input type="range" name="atmosphere-range" min="-5" max="5">
+                    <i class="icon ion-thumbsup"></i>
+                </div>
+                <br/>
                 <button class="button button-outline button-positive" style="float:right;">
                     <i class="icon ion-compose"></i> Commentaar
                 </button>
@@ -34,11 +37,13 @@
 
             <a class="item" href="#">
                 <p>Respect: Voelde u zich gerespecteerd?</p>
-                <i class="icon ion-ios-star-outline rate"></i>
-                <i class="icon ion-ios-star-outline rate"></i>
-                <i class="icon ion-ios-star-outline rate"></i>
-                <i class="icon ion-ios-star-outline rate"></i>
-                <i class="icon ion-ios-star-outline rate"></i>
+
+                <div class="item range">
+                    <i class="icon ion-thumbsdown"></i>
+                    <input type="range" name="respect-range" min="-5" max="5">
+                    <i class="icon ion-thumbsup"></i>
+                </div>
+                <br/>
                 <button class="button button-outline button-positive" style="float:right;">
                     <i class="icon ion-compose"></i> Commentaar
                 </button>
@@ -48,14 +53,16 @@
             <div class="item item-divider">
                 Selectie
             </div>
-
+            <br/>
             <a class="item" href="#">
                 <p>Procedure: Vond u dat uw capaciteiten goed beoordeeld werden?</p>
-                <i class="icon ion-ios-star-outline rate"></i>
-                <i class="icon ion-ios-star-outline rate"></i>
-                <i class="icon ion-ios-star-outline rate"></i>
-                <i class="icon ion-ios-star-outline rate"></i>
-                <i class="icon ion-ios-star-outline rate"></i>
+
+                <div class="item range">
+                    <i class="icon ion-thumbsdown"></i>
+                    <input type="range" name="skill-range" min="-5" max="10">
+                    <i class="icon ion-thumbsup"></i>
+                </div>
+                <br/>
                 <button class="button button-outline button-positive" style="float:right;">
                     <i class="icon ion-compose"></i> Commentaar
                 </button>
@@ -69,7 +76,7 @@
                 <p>In hoeverre denkt u dat u kans maakt op deze job?</p>
                 <div class="item range">
                     <i class="icon ion-thumbsdown"></i>
-                    <input type="range" name="volume">
+                    <input type="range" name="luck-vol" min="-5" max="5">
                     <i class="icon ion-thumbsup"></i>
                 </div>
             </div>
