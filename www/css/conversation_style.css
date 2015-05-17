@@ -1,4 +1,17 @@
 
+.bericht{
+    position:fixed;
+    top:89%;
+    width:calc(100% - 75px);
+}
+
+.sendbutton{
+    position:fixed;
+    top:89%;
+    width:75px;
+    right:0px;
+}
+
 button.button-vraag{
     margin:5px;
     width:calc(100% - 10px);
