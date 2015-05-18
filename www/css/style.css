@@ -53,7 +53,7 @@ swipe-card{
     position: fixed;
     -webkit-transform: scale(1,1);
     left: 12px;
-    top: 150px;
+    top: 100px;
     width:calc(100% - 25px);
     height:100%; /*350px*/
     background-color: rgb(255,255,255);
@@ -84,7 +84,7 @@ swipe-card .tijdsregeling{
     text-align: center;
     height: 50%;
     left:2%;
-    top:150px;
+    top:100px;
     width:calc(100% - 25px);
     box-shadow: lightgrey 2px 2px 2px;
 }

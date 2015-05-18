@@ -9,7 +9,11 @@
 
 <link href="lib/ionic/css/ionic.css" rel="stylesheet">
 <link href="css/conversation_style.css" rel="stylesheet">
-
+<script>
+    function msgSender(){
+        alert(document.getElementById("berichtbox").value);
+    }
+</script>
     <ion-content class="contentconvo">
         <div class="employerheader">
             <img class="convoavatar" ng-src={{chat.face}}>
@@ -21,6 +25,12 @@
         <div id="conversationwindow">
 
         </div>
-        <br><br><br>
+        <label class="item item-input bericht">
+            <i class="icon ion-chatbubbles placeholder-icon"></i>
+            <input type="search" placeholder="Bericht..." id="berichtbox" value="" ng-model="string" name="berichtbox">
+        </label>
+        <button class="button button-balanced sendbutton" ng-click="sendmessage(string)">
+            <i class="icon ion-paper-airplane"></i>
+        </button>
     </ion-content>
 </ion-view>

@@ -39,8 +39,19 @@ angular.module('starter.services', [])
 })
 
     .factory('Profile', function(){
-        var profile = [{
-            id:0,
+        var ref = new Firebase("https://argo.firebaseio.com/users/");
+
+        var profile=null;
+
+        ref.child(userId).on("value", function(snapshot) {
+
+            profile= snapshot.val();
+            console.log(profile);
+        });
+
+
+       /* profile = [{
+            id:userId,
             name: 'Marty Mcfly',
             level: '1',
             face: '../img/mcfly.jpg',
@@ -68,24 +79,19 @@ angular.module('starter.services', [])
 
             ]
 
-        }];
+        }];*/
 
         return {
             all: function() {
                 return profile;
             },
-            get: function(profileId) {
-                for (var i = 0; i < profile.length; i++) {
-                    if (profile[i].id === parseInt(profileId)) {
-                        return profile[i];
-                    }
-                }
-                return null;
+            get: function() {
+                return profile;
             }
         };
     })
 
-.factory('Chats', function() {
+.factory('Chats', function($timeout, $q) {
   // Might use a resource here that returns a JSON array
 
   // Some fake testing data
@@ -130,7 +136,7 @@ angular.module('starter.services', [])
 
   },
   {
-      id: 0,
+      id: 1,
       empid: 0,
       userid: 0,
       company:"Microsoft",
@@ -174,19 +180,69 @@ angular.module('starter.services', [])
 
   return {
     all: function() {
-      return chats;
+
+        var tempchats = $q.defer();
+        var getChats = new Firebase("https://argo.firebaseio.com/chats/");
+        getChats.child(userId).on("value", function(snapshot) {
+            console.log("incoming data:" + snapshot.val());
+            tempchats.resolve(snapshot.val()); //real data
+            console.log("saved data: " + tempchats);
+        });
+        console.log("saved data again:" + tempchats);
+        return tempchats.promise;
+
+
+
+
     },
     remove: function(chat) {
       chats.splice(chats.indexOf(chat), 1);
     },
     get: function(chatId) {
-      for (var i = 0; i < chats.length; i++) {
-        if (chats[i].id === parseInt(chatId)) {
-          return chats[i];
+        console.log("starting to get.");
+        var userchats = null;
+        var getChats = new Firebase("https://argo.firebaseio.com/chats/" + userId + "/");
+
+        getChats.child(chatId).on("value", function(snapshot) {
+            userchats =  snapshot.val(); //real data
+            console.log(userchats);
+            if(userchats==null)
+            {
+                console.log("chat not found. setting defaults.");
+                getChats.child(chatId).set({
+                    id: 0,
+                    company:"dummy company", //todo: fill this in
+                    name: 'dummy person',
+                    vacature: 'dummy job',
+                    face: '../img/user_icon_200.png'
+                });
+                console.log("defaults set. about to return null.");
+                return null;
+            }
+            console.log("about to return chat.");
+            return userchats;
+        });
+
+
+        return userchats;
+
+        for (var i = 0; i < userchats.length; i++) { //fake data backup
+            if (userchats[i].id === parseInt(chatId)) {
+                //create chat incase empty
+
+
+
+                return userchats[i];
+            }
         }
-      }
-      return null;
-    }
+        return null;
+
+
+
+    },
+  put: function(chatId, message) {
+
+  }
   };
 })
 
@@ -280,6 +336,9 @@ angular.module('starter.services', [])
 
   return {
     all: function() {
+
+
+
       return favs;
 
         //Get Alle Localstorage from interest

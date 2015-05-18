@@ -184,7 +184,13 @@ angular.module('starter.controllers', ['firebase'])
 })
 
 .controller('ChatsCtrl', function($scope, Chats) {
-  $scope.chats = Chats.all();
+    console.log("getting all chats...");
+    $scope.chats = null;
+  Chats.all().then(
+      function(res){
+          $scope.chats=res;
+      }
+  );
   $scope.remove = function(chat) {
     Chats.remove(chat);
   }
@@ -193,8 +199,29 @@ angular.module('starter.controllers', ['firebase'])
 })
 
 .controller('ChatDetailCtrl', function($scope, $stateParams, Chats) {
+        console.log("trying to load chat.");
    $scope.chat = Chats.get($stateParams.chatId);
 
+
+    $scope.sendmessage = function(text){
+        if(text!=null){
+            var currentdate = new Date();
+            var getChats = new Firebase("https://argo.firebaseio.com/chats/" + userId + "/" + $stateParams.chatId + "/");
+            getChats.child("chatContents").push({
+                messageid: "0",
+                messageType:"userMessage",
+                messageContent:text,
+                messageTime:currentdate.getHours() + ":" + currentdate.getMinutes() + ":" + currentdate.getSeconds(),
+                messageDate:currentdate.getDate() + "/" + (currentdate.getMonth() + 1) + "/" + currentdate.getFullYear()
+
+            })
+
+            $scope.reload();
+        }
+    };
+
+    $scope.reload = function(){
+        $scope.chat = Chats.get($stateParams.chatId);
         document.getElementById("conversationwindow").innerHTML="";
         for (var index in $scope.chat.chatContents) {
 
@@ -216,11 +243,12 @@ angular.module('starter.controllers', ['firebase'])
 
         }
         document.getElementById("conversationwindow").innerHTML+="<br><br><br>";
+    };
 
-
-
-
-
+    $scope.reload();
+    setInterval(function() {
+        $scope.reload();
+    }, 2000);
 
 })
 
@@ -243,6 +271,7 @@ angular.module('starter.controllers', ['firebase'])
             email:username,
             password:password
         }).then (function(authData){
+            userId = authData.uid;
             $state.go('tab.dash')
         }).catch(function(error){
             console.log(error);
@@ -251,7 +280,6 @@ angular.module('starter.controllers', ['firebase'])
     $scope.register = function(voornaam, achternaam, woonplaats, postcode, straat, telefoon, mobiel, email, paswoord, confpaswoord ){
 
         var fbAuth = $firebaseAuth(fb);
-        var uid;
         //var username = $scope.username;
         //var password = $scope.password;
         fbAuth.$createUser({
@@ -261,7 +289,7 @@ angular.module('starter.controllers', ['firebase'])
 
         .then(function(authData){
                 alert("user created");
-                alert(authData.uid);
+                userId = authData.uid;
                 fbRegister.child(authData.uid).set( {
                     "voornaam": voornaam,
                     "achternaam": achternaam,

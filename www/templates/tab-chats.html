@@ -1,11 +1,11 @@
 <ion-view view-title="Gesprekken">
   <ion-content>
     <ion-list>
-      <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="chat in chats" type="item-text-wrap" href="#/tab/chats/{{chat.id}}">
-        <img ng-src="{{chat.face}}">
-        <h2>{{chat.name}}</h2>
-        <p>Bedrijf: {{chat.company}}</p>
-        <p>Vacature: {{chat.vacature}}</p>
+      <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="company in chats" type="item-text-wrap" href="#/tab/chats/{{chats[$index].id}}">
+        <img ng-src="{{chats[$index].face}}">
+        <h2>{{chats[$index].name}}</h2>
+        <p>Bedrijf: {{chats[$index].company}}</p>
+        <p>Vacature: {{chats[$index].vacature}}</p>
         <i class="icon ion-chevron-right icon-accessory"></i>
 
         <ion-option-button class="button-assertive" ng-click="remove(chat)">
