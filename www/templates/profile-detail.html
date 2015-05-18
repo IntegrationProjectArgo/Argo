@@ -44,8 +44,8 @@
             </script>
             <div class="item item-text-wrap">
 
-                <p>{{profileDetail.straat}}</p>
-                <p>{{profileDetail.postcode}} {{profileDetail.gemeente}}</p>
+                <p>{{profileDetail.adres.straat}}</p>
+                <p>{{profileDetail.adres.postcode}} {{profileDetail.adres.woonplaats}}</p>
 
             </div>
 
@@ -75,7 +75,8 @@
             </script>
             <div class="item list item-text-wrap">
                 <div class="item">
-                    <p><i class="icon ion-iphone"> </i> {{profileDetail.telefoon}}</p>
+                    <p><i class="icon ion-ios-telephone"> </i> {{profileDetail.telefoon}}</p>
+                    <p><i class="icon ion-iphone"> </i> {{profileDetail.mobiel}}</p>
 
                 </div>
                 <div class="item">
