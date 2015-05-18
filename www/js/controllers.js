@@ -27,7 +27,7 @@ angular.module('starter.controllers', ['firebase'])
         $scope.cards = Array.prototype.slice.call(cardTypes, 0, 0);
 
         $scope.cardSwiped = function(index){
-            $scope.addCard();
+           // $scope.addCard();
         };
 
         $scope.cardDestroyed = function(index){
