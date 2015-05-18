@@ -8,8 +8,8 @@
 
         <div id = "top" class="list card">
             <a class="item item-avatar" href="#/tab/dash/{{profileDetail.id}}" >
-                <img class="avatar" ng-src={{profileDetail.face}}>
-                <div class="leftspace"><h2> {{profileDetail.name}}</h2><p style="float:right;position:relative;top:-25px;">Level {{profileDetail.level}}</p></p>
+                <img class="avatar" src="./img/user_icon_200.png">
+                <div class="leftspace"><h2> {{profileDetail.voornaam}} {{profileDetail.achternaam}}</h2><p style="float:right;position:relative;top:-25px;">Level {{profileDetail.level}}1</p></p>
                     <item><progress value="10" max="100" style="position:relative;top:-5px;"></progress></item>
                 </div>
             </a>
@@ -44,8 +44,8 @@
             </script>
             <div class="item item-text-wrap">
 
-                <p>{{profileDetail.adres.straat}}</p>
-                <p>{{profileDetail.adres.postcode}} {{profileDetail.adres.gemeente}}</p>
+                <p>{{profileDetail.straat}}</p>
+                <p>{{profileDetail.postcode}} {{profileDetail.gemeente}}</p>
 
             </div>
 
