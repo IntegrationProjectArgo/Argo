@@ -1,4 +1,4 @@
-<ion-view view-title="{{fav.BEROEP}}">
+<ion-view view-title="{{fav.functieNaam}}">
     <ion-nav-buttons class="button button-positive" side="right">
         <button id="emailbutton" class="button button-clear button-light"><i class="icon ion-ios-email-outline"></i></button>
     </ion-nav-buttons>
@@ -12,7 +12,7 @@
 
             <div class="item item-text-wrap">
 
-                <p>{{fav.AMB_REGIO}}, {{fav.PROVINCIE}}</p>
+                <p>{{fav.plaatsTewerkstelling.gemeenteOfRegio}}</p>
 
             </div>
 
@@ -25,7 +25,8 @@
 
             <div class="item item-text-wrap">
 
-                <p>{{fav.NACE_OMSCHRIJVING}} ({{fav.SECTOR}})</p>
+                <b><p>{{fav.aanbodEnVoordelen.soortJob}}</p></b>
+                <p>{{fav.functieOmschrijving}}</p>
 
             </div>
 
@@ -41,12 +42,12 @@
                 <div class="item">
                     <h2>Opleiding</h2>
                     <span class="item-note"></span>
-                    <p>{{fav.STUDIENIVEAU_BASIS}}, {{fav.STUDIENIVEAU_DETAIL}}</p>
+                    <p>{{fav.profiel.studies.toString()}}</p>
                 </div>
                 <div class="item">
                     <h2>Ervaring</h2>
                     <span class="item-note"></span>
-                    <p>{{fav.ERVARING}}</p>
+                    <p>{{fav.profiel.werkervaring}}</p>
                 </div>
                 <div class="item">
                     <h2>Taalkennis</h2>
@@ -58,22 +59,22 @@
                 <div class="item">
                     <h2>Rijbewijs</h2>
                     <span class="item-note"></span>
-                    <p>{{fav.RIJBEWIJS}}</p>
+                    <p>{{fav.profiel.rijbewijzen.toString()}}</p>
                 </div>
                 <div class="item">
                     <h2>Tijdsregeling</h2>
                     <span class="item-note"></span>
-                    <p>{{fav.VOLTIJDS_DEELTIJDS}}</p>
+                    <p>{{fav.aanbodEnVoordelen.tijdregeling}}</p>
                 </div>
 
 
             </div>
 
         </div>
-        <div class="button button-full button-positive button-outline">
+        <button class="button button-full button-positive button-outline" ng-click="startChat();">
             Toon Interesse
 
-        </div>
+        </button>
         <br><br>
 
     </ion-content>

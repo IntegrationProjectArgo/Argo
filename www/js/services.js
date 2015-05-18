@@ -38,16 +38,8 @@ angular.module('starter.services', [])
         };
 })
 
-    .factory('Profile', function(){
-        var ref = new Firebase("https://argo.firebaseio.com/users/");
+    .factory('Profile', function($q){
 
-        var profile=null;
-
-        ref.child(userId).on("value", function(snapshot) {
-
-            profile= snapshot.val();
-            console.log(profile);
-        });
 
 
        /* profile = [{
@@ -86,7 +78,17 @@ angular.module('starter.services', [])
                 return profile;
             },
             get: function() {
-                return profile;
+
+                var ref = new Firebase("https://argo.firebaseio.com/users/");
+
+                var profile=$q.defer();
+
+                ref.child(userId).on("value", function(snapshot) {
+
+                    profile.resolve(snapshot.val());
+                    console.log(profile.promise);
+                });
+                return profile.promise;
             }
         };
     })
@@ -252,7 +254,7 @@ angular.module('starter.services', [])
   // Some fake testing data
     var favs = [{
 
-        "id":53253476,
+        "id":0,
         "functieNaam":"Schrijnwerker  ploegbaas arendonk",
         "aantalJobs":1,
         "functieOmschrijving":"<p>Je taken bestaan voornamelijk uit het plaatsen van ramen, deuren en daktimmer. Als ploegbaas zorg je ervoor dat je team de                                             werken uitvoert met de meeste zorg en kwaliteit. Je ziet erop toe dat alles correct verloopt. Je werkt zelf ook mee.</p>",

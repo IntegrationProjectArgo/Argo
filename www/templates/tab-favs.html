@@ -5,7 +5,7 @@
 
       </ion-refresher>
     <ion-list>
-      <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="fav in favs" type="item-text-wrap" href="#/tab/favs/{{fav.id}}">
+      <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="fav in favs" type="item-text-wrap" href="#/tab/favs/{{favs[$index].id}}">
         <h2>{{favs[$index].functieNaam}}</h2>
         <p>{{favs[$index].plaatsTewerkstelling.gemeenteOfRegio}}</p>
 

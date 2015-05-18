@@ -12,7 +12,12 @@ angular.module('starter.controllers', ['firebase'])
 
 
 .controller('DashCtrl', function($scope, Profile) {
-        $scope.profileDetail = Profile.get(0);
+
+        Profile.get(0).then(
+            function(res){
+                $scope.profileDetail=res;
+            }
+        );
 
 
 })
@@ -22,7 +27,7 @@ angular.module('starter.controllers', ['firebase'])
         $scope.cards = Array.prototype.slice.call(cardTypes, 0, 0);
 
         $scope.cardSwiped = function(index){
-            $scope.addCard();
+           // $scope.addCard();
         };
 
         $scope.cardDestroyed = function(index){
@@ -45,7 +50,11 @@ angular.module('starter.controllers', ['firebase'])
     })
 
 .controller('ProfileDetailCtrl', function($scope, $stateParams, $ionicPopover, Profile) {
-    $scope.profileDetail = Profile.get(0);
+        Profile.get(0).then(
+            function(res){
+                $scope.profileDetail=res;
+            }
+        );
 
         // .fromTemplate() method
         var template = '<ion-popover-view><ion-header-bar> <h1 class="title">My Popover Title</h1> </ion-header-bar> <ion-content> Hello! </ion-content></ion-popover-view>';
@@ -109,8 +118,13 @@ angular.module('starter.controllers', ['firebase'])
 
 })
 
-.controller('FavDetailCtrl', function($scope, $stateParams, Favs) {
-    $scope.fav = Favs.get($stateParams.favId)
+.controller('FavDetailCtrl', function($scope, $stateParams, Favs, Chats) {
+    $scope.fav= null;
+    $scope.fav = Favs.get(0);
+
+    $scope.startChat = function(){
+        Chats.get(0);
+    }
 })
 
 .controller('MapCtrl', function($scope, $ionicLoading) {
@@ -214,7 +228,31 @@ angular.module('starter.controllers', ['firebase'])
                 messageTime:currentdate.getHours() + ":" + currentdate.getMinutes() + ":" + currentdate.getSeconds(),
                 messageDate:currentdate.getDate() + "/" + (currentdate.getMonth() + 1) + "/" + currentdate.getFullYear()
 
-            })
+            });
+            getChats.child("chatContents").push({
+                messageid: "0",
+                messageType:"empMessage",
+                messageContent:"Prima! Kom maar even langs!",
+                messageTime:currentdate.getHours() + ":" + currentdate.getMinutes() + ":" + currentdate.getSeconds(),
+                messageDate:currentdate.getDate() + "/" + (currentdate.getMonth() + 1) + "/" + currentdate.getFullYear()
+
+            });
+            getChats.child("chatContents").push({
+                messageid: "0",
+                messageType:"interviewNotification",
+                messageContent:text,
+                messageTime:currentdate.getHours() + ":" + currentdate.getMinutes() + ":" + currentdate.getSeconds(),
+                messageDate:currentdate.getDate() + "/" + (currentdate.getMonth() + 1) + "/" + currentdate.getFullYear()
+
+            });
+            getChats.child("chatContents").push({
+                messageid: "0",
+                messageType:"ratingNotification",
+                messageContent:text,
+                messageTime:currentdate.getHours() + ":" + currentdate.getMinutes() + ":" + currentdate.getSeconds(),
+                messageDate:currentdate.getDate() + "/" + (currentdate.getMonth() + 1) + "/" + currentdate.getFullYear()
+
+            });
 
             $scope.reload();
         }
