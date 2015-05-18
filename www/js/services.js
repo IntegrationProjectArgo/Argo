@@ -37,8 +37,14 @@ angular.module('starter.services', [])
             getApiData: getApiData
         };
 })
+    .factory('Profile', function ($firebaseAuth, $firebaseObject) {
+            var ref = new Firebase("https://argo.firebaseio.com/");
+            var ref2 = new Firebase( "https://argo.firebaseio.com/users/"+$firebaseAuth(ref).$getAuth().uid);
+        return $firebaseObject(ref2);
 
-    .factory('Profile', function(){
+
+        })
+    /**.factory('Profile', function(){
         var profile = [{
             id:0,
             name: 'Marty Mcfly',
@@ -64,9 +70,20 @@ angular.module('starter.services', [])
                 company: 'Self-Employed',
                 duur: '1 Jaar',
                 nota: 'Johny B.Goode uitgevonden tijdens de schoolbal'
-            }
+            }],
+                diplomas:[{
+            id:0,
+                titel:'ASO3',
+                richting:'Economie wetenschappen',
+                behaalplaats:'K.A.K'
+        }],
+        rijbewijs:{
+            id:0,
+            klasse:'e5',
+            geldigTot:'12/15'
+        }
 
-            ]
+
 
         }];
 
@@ -83,7 +100,7 @@ angular.module('starter.services', [])
                 return null;
             }
         };
-    })
+    })**/
 
 .factory('Chats', function() {
   // Might use a resource here that returns a JSON array

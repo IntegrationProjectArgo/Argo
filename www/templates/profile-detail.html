@@ -8,9 +8,9 @@
 
         <div id = "top" class="list card">
             <a class="item item-avatar" href="#/tab/dash/{{profileDetail.id}}" >
-                <img class="avatar" ng-src={{profileDetail.face}}>
-                <div class="leftspace"><h2> {{profileDetail.name}}</h2><p style="float:right;position:relative;top:-25px;">Level {{profileDetail.level}}</p></p>
-                    <item><progress value="10" max="100" style="position:relative;top:-5px;"></progress></item>
+                <img class="avatar" ng-src={{profileDetail.profielfoto}}>
+                <div class="leftspace"><h2> {{profileDetail.voornaam}} {{profileDetail.achternaam}}</h2><p style="float:right;position:relative;top:-25px;">Level {{profileDetail.level}}</p></p>
+                    <item><progress value="{{profileDetail.experience}}" max="100" style="position:relative;top:-5px;"></progress></item>
                 </div>
             </a>
         </div>
@@ -18,26 +18,32 @@
         <div class="card">
             <div class="item item-button-right item-divider bar bar-balanced">
                 Adres
-                <button class="button button-light button-clear" ng-click="openPopover($event)">
+                <button class="button button-light button-clear" ng-click="openPopover($event,'over.html')">
                     <i class="icon ion-compose"></i>
                 </button>
             </div>
             <script id="over.html" type="text/ng-template">
                 <ion-popover-view>
-                    <ion-header-bar class="item bar bar-positive">
-                        adres
+                    <ion-header-bar class="item bar bar-balanced">
+                        Adres
                     </ion-header-bar>
                     <ion-content>
                         <div class="list">
                             <label class="item item-input">
-                                <input type="text" placeholder="straat">
+                                <span class="input-label">Straat</span>
+                                <input type="text" ng-model="straat" value={{profileDetail.adres.straat}}>
                             </label>
                             <label class="item item-input">
-                                <input type="text" placeholder="postcode">
+                                <span class="input-label">Postcode</span>
+                                <input type="text" ng-model="postcode" value={{profileDetail.adres.postcode}}>
                             </label>
                             <label class="item item-input">
-                                <input type="text" placeholder="gemeente">
+                                <span class="input-label">Gemeente</span>
+                                <input type="text" ng-model="gemeente" value={{profileDetail.adres.woonplaats}}>
                             </label>
+                            <button class="button submit button-clear" ng-click="test(straat,postcode,gemeente)">
+                                submit
+                            </button>
                         </div>
                     </ion-content>
                 </ion-popover-view>
@@ -45,7 +51,7 @@
             <div class="item item-text-wrap">
 
                 <p>{{profileDetail.adres.straat}}</p>
-                <p>{{profileDetail.adres.postcode}} {{profileDetail.adres.gemeente}}</p>
+                <p>{{profileDetail.adres.postcode}} {{profileDetail.adres.woonplaats}}</p>
 
             </div>
 
@@ -54,29 +60,40 @@
         <div class="card">
             <div class="item item-button-right item-divider bar bar-balanced">
                 Contact
-                <button class="button button-light button-clear" ng-click="openPopover($event)">
+                <button class="button button-light button-clear" ng-click="openPopover($event,'popover.html')">
                     <i class="icon ion-compose"></i>
                 </button>
             </div>
             <script id="popover.html" type="text/ng-template">
                 <ion-popover-view>
-                    <ion-header-bar class="item bar bar-positive">
-                        My Popover Title
+                    <ion-header-bar class="item bar bar-balanced">
+                        Contact
                     </ion-header-bar>
                     <ion-content>
                         <label class="item item-input">
-                            <input type="text" placeholder="telefoon">
+                            <span class="input-label">Telefoon</span>
+                            <input type="text" ng-model="telefoon" value={{profileDetail.telefoon}}>
                         </label>
                         <label class="item item-input">
-                            <input type="text" placeholder="email">
+                            <span class="input-label">Mobiel</span>
+                            <input type="text" ng-model="mobiel" value={{profileDetail.mobiel}}>
                         </label>
+                        <label class="item item-input">
+                            <span class="input-label">Email</span>
+                            <input type="text" ng-model="email" value={{profileDetail.email}}>
+                        </label>
+                        <button class="button submit button-clear" ng-click="Contactcommit(telefoon,mobiel,email)">
+                            submit
+                        </button>
                     </ion-content>
                 </ion-popover-view>
             </script>
             <div class="item list item-text-wrap">
                 <div class="item">
                     <p><i class="icon ion-iphone"> </i> {{profileDetail.telefoon}}</p>
-
+                </div>
+                <div class="item">
+                    <p><i class="icon ion-iphone"> </i> {{profileDetail.mobiel}}</p>
                 </div>
                 <div class="item">
                     <p><i class="icon ion-at"> </i>{{profileDetail.email}}</p>
@@ -89,23 +106,64 @@
         <div class="card">
             <div class="item item-button-right item-divider bar bar-balanced">
                 Ervaringen
-                <button class="button button-light button-clear" ng-click="openPopover($event)">
+                <button class="button button-light button-clear" ng-click="openPopover($event,'my-popover.html')">
                     <i class="icon ion-compose"></i>
                 </button>
             </div>
             <script id="my-popover.html" type="text/ng-template">
                 <ion-popover-view>
-                    <ion-header-bar class="item bar bar-positive">
-                        My Popover Title
-                    </ion-header-bar>
-                    <ion-content>
-                        <label class="item item-input">
-                            <input type="text" placeholder="test">
+                    <ion-header-bar class="item bar bar-balanced bar-header disable-user-behavior">
+                        Ervaringen
+                    </ion-header-bar><ion-item ng-repeat="ervaringen in profileDetail.ervaringen" class="item lijst">
+                    <label class="item item-input lijst">
+                        <label class="item item-stacked-input lijst">
+                            <span class="input-label">Titel</span>
+                            <input type="text" ng-model="titel" value={{profileDetail.ervaringen[$index].titel}}>
                         </label>
-                    </ion-content>
+                        <label class="item item-stacked-input lijst">
+                            <span class="input-label">Company</span>
+                            <input type="text" ng-model="company" value={{profileDetail.ervaringen[$index].company}}>
+                        </label>
+                        <label class="item item-stacked-input lijst">
+                            <span class="input-label">Duur</span>
+                            <input type="text" ng-model="duur" value={{profileDetail.ervaringen[$index].duur}}>
+                        </label>
+                    </label>
+                    <button class="button submit button-clear" ng-click="ervaringu(Titel,Company,duur,$index)">
+                        submit
+                    </button>
+                </ion-item>
+                    <button class="button submit button-clear" ng-click="openPopover($event,'er.html')">
+                        submit
+                    </button>
                 </ion-popover-view>
             </script>
-            <div class="item list item-text-wrap">
+            <script id="er.html" type="text/ng-template">
+                <ion-popover-view>
+                    <ion-header-bar class="item bar bar-balanced bar-header disable-user-behavior">
+                        Ervaringen
+                    </ion-header-bar><ion-item  class="item lijst">
+                    <label class="item item-input lijst">
+                        <label class="item item-stacked-input lijst">
+                            <span class="input-label">Titel</span>
+                            <input type="text" ng-model="titel" value="titel">
+                        </label>
+                        <label class="item item-stacked-input lijst">
+                            <span class="input-label">Company</span>
+                            <input type="text" ng-model="company" value="company">
+                        </label>
+                        <label class="item item-stacked-input lijst">
+                            <span class="input-label">Duur</span>
+                            <input type="text" ng-model="duur" value="duur">
+                        </label>
+                    </label>
+                    <button class="button submit button-clear" ng-click="ervar(Titel,Company,duur)">
+                        submit
+                    </button>
+                </ion-item>
+                </ion-popover-view>
+            </script>
+        <div class="item list item-text-wrap">
                 <ion-item ng-repeat="ervaringen in profileDetail.ervaringen" type="item-text-wrap">
                     <div class="item">
                         <h2><i class="icon ion-clipboard"> </i>{{profileDetail.ervaringen[$index].titel}}</h2>
@@ -113,6 +171,87 @@
                         <p><i class="icon ion-clock"></i>{{profileDetail.ervaringen[$index].duur}}</p>
                     </div>
                 </ion-item>
+
+            </div>
+        </div>
+
+            <div class="card">
+                <div class="item item-button-right item-divider bar bar-balanced">
+                    Diploma's
+                    <button class="button button-light button-clear" ng-click="openPopover($event,'opover.html')">
+                        <i class="icon ion-compose"></i>
+                    </button>
+                </div>
+                <script id="opover.html" type="text/ng-template">
+                    <ion-popover-view>
+                        <ion-header-bar class="item bar bar-balanced bar-header disable-user-behavior">
+                            Ervaringen
+                        </ion-header-bar><ion-item ng-repeat="diplomas in profileDetail.diplomas" class="item lijst">
+                        <label class="item item-input lijst">
+                            <label class="item item-stacked-input lijst">
+                                <span class="input-label">Titel</span>
+                                <input type="text" value={{profileDetail.diplomas[$index].titel}}>
+                            </label>
+                            <label class="item item-stacked-input lijst">
+                                <span class="input-label">Richting</span>
+                                <input type="text" value={{profileDetail.diplomas[$index].richting}}>
+                            </label>
+                            <label class="item item-stacked-input lijst">
+                                <span class="input-label">Behaalplaats</span>
+                                <input type="text" value={{profileDetail.diplomas[$index].behaalplaats}}>
+                            </label>
+                        </label>
+                    </ion-item>
+                    </ion-popover-view>
+                </script>
+
+                <div class="item list item-text-wrap">
+                    <ion-item ng-repeat="diplomas in profileDetail.diplomas" type="item-text-wrap">
+                        <div class="item">
+                            <h2><i class="icon ion-clipboard"> </i>{{profileDetail.diplomas[$index].titel}}</h2>
+                            <span class="item-note"><i class="icon ion-briefcase"></i>{{profileDetail.diplomas[$index].richting}}</span>
+                            <p><i class="icon ion-map"></i> {{profileDetail.diplomas[$index].behaalplaats}}</p>
+                        </div>
+                    </ion-item>
+
+                </div>
+
+        </div>
+        <div class="card">
+            <div class="item item-button-right item-divider bar bar-balanced">
+                Rijbewijs
+                <button class="button button-light button-clear" ng-click="openPopover($event,'ver.html')">
+                    <i class="icon ion-compose"></i>
+                </button>
+            </div>
+            <script id="ver.html" type="text/ng-template">
+                <ion-popover-view>
+                    <ion-header-bar class="item bar bar-balanced">
+                        Rijbewijs
+                    </ion-header-bar>
+                    <ion-content>
+                        <label class="item item-input">
+                            <span class="input-label">klasse</span>
+                            <input type="text" ng-model="klasse" value={{profileDetail.rijbewijs.klasse}}>
+                        </label>
+                        <label class="item item-input">
+                            <span class="input-label">Geldig Tot</span>
+                            <input type="text" ng-model="geldigtot" value={{profileDetail.rijbewijs.geldigTot}}>
+                        </label>
+                        <button class="button submit button-clear" ng-click="rij(klasse,geldigtot)">
+                            submit
+                        </button>
+                    </ion-content>
+                </ion-popover-view>
+            </script>
+            <div class="item list item-text-wrap">
+                <div class="item">
+                    <p><i class="icon ion-model-s"> </i> {{profileDetail.rijbewijs.klasse}}</p>
+
+                </div>
+                <div class="item">
+                    <p><i class="icon ion-calendar"> </i>{{profileDetail.rijbewijs.geldigTot}}</p>
+                </div>
 
             </div>
 

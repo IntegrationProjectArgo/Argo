@@ -11,7 +11,11 @@ float:left;
 .scroll {
     height: calc(100% - 100px);
 }
-
+.lijst{
+    border: none;
+    padding-left: 10px;
+    padding-right: 10px;
+}
 #top{
     height:70px;
 }

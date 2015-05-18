@@ -12,7 +12,7 @@ angular.module('starter.controllers', ['firebase'])
 
 
 .controller('DashCtrl', function($scope, Profile) {
-        $scope.profileDetail = Profile.get(0);
+     $scope.profileDetail = Profile;
 
 
 })
@@ -44,35 +44,56 @@ angular.module('starter.controllers', ['firebase'])
         }
     })
 
-.controller('ProfileDetailCtrl', function($scope, $stateParams, $ionicPopover, Profile) {
-    $scope.profileDetail = Profile.get(0);
-
+.controller('ProfileDetailCtrl', function($scope, $stateParams, $ionicPopover, Profile, $rootScope, $firebase) {
+    $scope.profileDetail = Profile;
+//$scope.test2=$firebase.getAuth();
         // .fromTemplate() method
-        var template = '<ion-popover-view><ion-header-bar> <h1 class="title">My Popover Title</h1> </ion-header-bar> <ion-content> Hello! </ion-content></ion-popover-view>';
-
-        $scope.popover = $ionicPopover.fromTemplate(template, {
-            scope: $scope
-        });
-
-        // .fromTemplateUrl() method
-        $ionicPopover.fromTemplateUrl('my-popover.html', {
-            scope: $scope
-        }).then(function(popover) {
-            $scope.popover = popover;
-        });
-        $ionicPopover.fromTemplateUrl('popover.html', {
-            scope: $scope
-        }).then(function(popover) {
-            $scope.popover = popover;
-        });
-        $ionicPopover.fromTemplateUrl('over.html', {
-            scope: $scope
-        }).then(function(popover) {
-            $scope.popover = popover;
-        });
-        $scope.openPopover = function($event) {
-            $scope.popover.show($event);
+        $scope.test= function(straat,postcode,gemeente){
+            var st =straat;
+            var pc =postcode;
+            var gem =gemeente;
+            console.log(straat);
+            if(straat=!null){
+            Profile.adres.straat=st;}
+            if(postcode=!null){
+            Profile.adres.postcode=pc;}
+            if(gemeente=!null){
+            Profile.adres.woonplaats=gem;}
+            Profile.$save();
         };
+        $scope.Contactcommit = function(telefoon,mobiel,email){
+            Profile.mobiel=mobiel;
+            Profile.telefoon = telefoon;
+            Profile.email = email;
+            Profile.$save();
+        };
+        $scope.ervaringu = function(Titel,Company,duur,index){
+            Profile.ervaringen[index].Titel=Titel;
+            Profile.ervaringen[index].Company = Company;
+            Profile.ervaringen[index].duur = duur;
+            Profile.$save();
+        };
+        $scope.ervar = function(Titel,Company,duur){
+            Profile.ervaringen[0].Titel=Titel;
+            Profile.ervaringen[0].Company = Company;
+            Profile.ervaringen[0].duur = duur;
+            Profile.$save();
+        };
+        $scope.rij = function(Titel,Company){
+            Profile.klasse=Titel;
+            Profile.geldigTot = Company;
+            Profile.$save();
+        };
+        $scope.openPopover = function($event, templateName) {
+            // Init popover on load
+            $ionicPopover.fromTemplateUrl(templateName, {
+                scope: $scope
+            }).then(function(popover) {
+                $scope.popover = popover;
+                $scope.popover.show($event);
+            });
+        };
+
         $scope.closePopover = function() {
             $scope.popover.hide();
         };
@@ -233,7 +254,7 @@ angular.module('starter.controllers', ['firebase'])
     enableFriends: true
   };
 })
-.controller("LoginController", function($scope, $firebaseAuth, $state) {
+.controller("LoginController", function($scope, $firebaseAuth, $state, $rootScope) {
         $scope.registerlink = function(){
            $state.go('register');
         }
@@ -243,6 +264,7 @@ angular.module('starter.controllers', ['firebase'])
             email:username,
             password:password
         }).then (function(authData){
+            $rootScope.test=authData,
             $state.go('tab.dash')
         }).catch(function(error){
             console.log(error);
